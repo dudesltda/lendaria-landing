@@ -1,0 +1,89 @@
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(h1, h2, h3, h4, .mega, .big, .glyph, .title, .head, .body, .h, .name, .n, .stat, .specimen, .s-h2, blockquote, [style*="font-family:var(--font-display)"], [style*="font-family: var(--font-display)"]) {
+  letter-spacing: 0 !important;
+  overflow-wrap: break-word;
+  word-break: normal;
+  text-wrap: balance;
+}
+
+@media (max-width: 900px) {
+  body {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    max-width: 100vw !important;
+    overflow-x: clip !important;
+  }
+
+  :where(.row, .hero, .grid, .sizes) {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  body > * {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  :where(.row, .hero, .grid, .stats, .sizes, .ramp .l) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  :where(.sw, .panel, .cell, .card, .a, .b, .comp, .specimen, .track) {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  :where(.mega, .big, .glyph) {
+    font-size: clamp(64px, 22vw, 92px) !important;
+    line-height: .95 !important;
+  }
+
+  :where(.title, .head, .body, .h, .name, blockquote) {
+    font-size: clamp(28px, 9vw, 40px) !important;
+    line-height: 1.05 !important;
+  }
+
+  :where(.stat, .stat .n) {
+    font-size: clamp(40px, 14vw, 56px) !important;
+    line-height: 1 !important;
+  }
+
+  :where(.tag, .l, sub, .role, .lab, .help, .meta, .desc, label, .sw, .card .lab span) {
+    font-size: 11px !important;
+    line-height: 1.3 !important;
+  }
+
+  :where(.btn, button, a) {
+    min-height: 44px !important;
+  }
+}

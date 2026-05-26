@@ -1,0 +1,619 @@
+/* ============================================================
+   Caçada à Mediocridade — page-specific styles
+   Built on top of colors_and_type.css tokens.
+   Playful Brutalist Doodle UI.
+   ============================================================ */
+
+body { background: var(--color-paper-warm); }
+[data-screen-label] { scroll-margin-top: 80px; }
+
+/* ---------- Wrapper ---------- */
+.wrap { max-width: 1480px; margin: 0 auto; padding: 0 32px; }
+.wrap.tight { max-width: 1200px; }
+.section { padding: 96px 0; border-top: 2px solid var(--color-ink); position: relative; }
+.section:first-of-type { border-top: 0; }
+.section.dark { background: var(--color-ink); color: var(--color-paper); }
+.section.dark .meta, .section.dark .sub { color: var(--color-mute-soft); }
+.section.paper { background: var(--color-paper); }
+
+/* ---------- Section header ---------- */
+.sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 56px; }
+.sec-head .left { max-width: 740px; }
+.sec-tag {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:0;
+  text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px; border: 2px solid currentColor; background: transparent;
+  margin-bottom: 24px;
+}
+.sec-tag .dot { width: 8px; height: 8px; background: var(--color-yellow); border: 1.5px solid currentColor; }
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: .98; letter-spacing: 0;
+  text-transform: uppercase; margin: 0;
+  text-wrap: balance;
+}
+.sec-sub {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: 20px; line-height: 1.5; margin: 16px 0 0; max-width: 60ch;
+  color: var(--color-ink);
+}
+.section.dark .sec-sub { color: var(--color-paper); }
+.sec-head .right { text-align: right; }
+.sec-num {
+  font-family: var(--font-display); font-size: 78px; line-height: 1;
+  letter-spacing: 0; color: var(--color-ink); opacity: .14;
+}
+.section.dark .sec-num { color: var(--color-paper); opacity: .18; }
+
+/* ---------- Highlight stroke under text (doodle underline) ---------- */
+.hl { position: relative; display: inline-block; }
+.hl::after {
+  content: ""; position: absolute; left: -2px; right: -2px; bottom: -6px;
+  height: 8px; background: var(--color-yellow); z-index: -1; transform: skewX(-2deg);
+}
+.hl.solid { background: var(--color-yellow); padding: 0 .12em; }
+.hl.ink { background: var(--color-ink); color: var(--color-yellow); padding: 0 .12em; }
+
+/* ---------- Skull rating ---------- */
+.skulls { display: inline-flex; gap: 4px; align-items: center; }
+.skull-svg { width: 18px; height: 18px; display: block; }
+.skull-svg .body { fill: var(--color-ink); }
+.skull-svg .eye { fill: var(--color-paper); }
+.skull-svg.on .body { fill: var(--color-yellow); }
+.skull-svg.on .eye { fill: var(--color-ink); }
+.skull-svg.crit .body { fill: var(--color-signal-red); }
+.skull-svg.crit .eye { fill: var(--color-paper); }
+
+/* ---------- Confusion symbol (squiggle + up/down arrow) ---------- */
+.conf-sym { width: 36px; height: 36px; display: inline-block; }
+
+/* ---------- Brutal card ---------- */
+.bcard {
+  background: var(--color-paper);
+  border: 2px solid var(--color-ink);
+  padding: 24px;
+  position: relative;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.bcard.tight { padding: 18px; }
+.bcard.warm { background: var(--color-paper-warm); }
+.bcard.ink { background: var(--color-ink); color: var(--color-paper); }
+.bcard.yellow { background: var(--color-yellow); }
+.bcard h3 {
+  font-family: var(--font-sans); font-weight: 800;
+  font-size: 20px; line-height: 1.1; letter-spacing:0;
+  text-transform: uppercase; margin: 0;
+}
+.bcard p { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; margin: 0; }
+.bcard .num {
+  position: absolute; top: 14px; right: 16px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:0;
+  color: var(--color-mute);
+}
+.bcard.ink .num { color: var(--color-mute-soft); }
+
+/* ---------- Mono labels ---------- */
+.lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase; color: var(--color-mute); }
+.lbl.ink { color: var(--color-ink); }
+.lbl.yellow { color: var(--color-yellow); }
+
+/* ---------- Pill ---------- */
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:0;
+  text-transform: uppercase; padding: 6px 10px;
+  border: 2px solid var(--color-ink); background: var(--color-paper);
+}
+.pill.ink { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+.pill.yellow { background: var(--color-yellow); color: var(--color-ink); }
+.pill.danger { background: var(--color-signal-red); color: var(--color-paper); border-color: var(--color-signal-red); }
+.pill.red { background: var(--color-paper); color: var(--color-signal-red); border-color: var(--color-signal-red); }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-sans); font-weight: 700; font-size: 14px;
+  letter-spacing:0; text-transform: uppercase;
+  padding: 14px 22px; border: 2px solid var(--color-ink);
+  background: var(--color-yellow); color: var(--color-ink);
+  cursor: pointer; transition: background 100ms linear, color 100ms linear, transform 100ms linear, box-shadow 100ms linear;
+  box-shadow: none; transform: none;
+  min-height: 44px;
+}
+.btn:hover,
+.btn:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-ink);
+  text-decoration: none;
+}
+.btn.ink { background: var(--color-ink); color: var(--color-yellow); }
+.btn.ink:hover,
+.btn.ink:focus-visible {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+.btn.ghost { background: transparent; box-shadow: none; }
+.btn.ghost:hover,
+.btn.ghost:focus-visible {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  transform: none;
+  box-shadow: none;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero { padding: 56px 0 64px; background: var(--color-paper-warm); }
+.hero-grid {
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: stretch;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 8vw, 116px);
+  line-height: .94; letter-spacing: 0;
+  text-transform: uppercase; margin: 0;
+  text-wrap: balance;
+}
+.hero-title .a { display: block; }
+.hero-title .b { display: block; }
+.hero-sub {
+  font-family: var(--font-sans); font-weight: 800;
+  font-size: clamp(20px, 1.7vw, 28px); line-height: 1.15; letter-spacing:0;
+  text-transform: uppercase; margin: 24px 0 0;
+}
+.hero-sub em { font-style: normal; background: var(--color-yellow); padding: 0 .12em; }
+.hero-copy { margin: 28px 0 0; font-size: 17px; line-height: 1.55; max-width: 56ch; }
+.hero-copy strong { font-weight: 700; }
+
+/* Player ficha card (right column) */
+.ficha {
+  background: var(--color-ink); color: var(--color-paper);
+  border: 2px solid var(--color-ink); box-shadow: 12px 12px 0 var(--color-yellow);
+  padding: 22px; display: flex; flex-direction: column; gap: 18px;
+}
+.ficha-top { display: flex; align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--color-ink-rule); }
+.ficha-top .avatar {
+  width: 56px; height: 56px; background: var(--color-yellow); color: var(--color-ink);
+  display: flex; align-items: center; justify-content: center; font-family: var(--font-display);
+  font-size: 30px; line-height: 1; border: 2px solid var(--color-paper);
+}
+.ficha-name { font-family: var(--font-display); font-size: 22px; line-height: 1; letter-spacing:0; }
+.ficha-class { font-family: var(--font-mono); font-size:11px; letter-spacing:0; color: var(--color-mute-soft); text-transform: uppercase; margin-top: 4px; }
+.ficha-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 16px; }
+.ficha-stat { display: flex; flex-direction: column; gap: 2px; }
+.ficha-stat .k { font-family: var(--font-mono); font-size:11px; letter-spacing:0; color: var(--color-mute-soft); text-transform: uppercase; }
+.ficha-stat .v { font-family: var(--font-display); font-size: 28px; line-height: 1; color: var(--color-paper); letter-spacing:0; }
+.ficha-stat .v.y { color: var(--color-yellow); }
+.ficha-bar { height: 14px; background: var(--color-ink-rule); border: 1px solid var(--color-paper); position: relative; overflow: hidden; }
+.ficha-bar > i { display: block; height: 100%; background: var(--color-yellow); border-right: 1px solid var(--color-paper); }
+.ficha-bar-meta { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size:11px; letter-spacing:0; color: var(--color-mute-soft); margin-top: 4px; text-transform: uppercase; }
+
+.vs-strip {
+  background: var(--color-ink); color: var(--color-paper);
+  padding: 14px 32px; display: flex; align-items: center; justify-content: center; gap: 18px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing:0; text-transform: uppercase;
+  border-top: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink);
+  overflow: hidden;
+}
+.vs-strip .y { color: var(--color-yellow); font-family: var(--font-display); font-size: 18px; letter-spacing:0; }
+.vs-strip .dim { color: #6b6b6b; }
+
+@media (max-width: 700px) {
+  .vs-strip {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    padding: 14px 16px;
+    letter-spacing:0;
+  }
+
+  .vs-strip > span {
+    max-width: 100%;
+  }
+}
+
+/* ============================================================
+   Hero CTAs
+   ============================================================ */
+.hero-cta { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+
+/* ============================================================
+   "Como funciona" — 6 mechanic cards
+   ============================================================ */
+.mech-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.mech-card {
+  background: var(--color-paper); border: 2px solid var(--color-ink); padding: 20px;
+  display: flex; flex-direction: column; gap: 12px; min-height: 200px;
+}
+.mech-card .ico { width: 40px; height: 40px; background: var(--color-yellow); border: 2px solid var(--color-ink); display: flex; align-items: center; justify-content: center; }
+.mech-card h4 {
+  font-family: var(--font-display); font-size: 22px; line-height: 1; letter-spacing:0;
+  text-transform: uppercase; margin: 0;
+}
+.mech-card p { font-size: 13px; line-height: 1.4; margin: 0; color: var(--color-mute); }
+.mech-card .num { font-family: var(--font-mono); font-size:11px; letter-spacing:0; color: var(--color-mute); margin-top: auto; }
+
+/* ============================================================
+   Atributos
+   ============================================================ */
+.attr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.attr-card {
+  background: var(--color-paper); border: 2px solid var(--color-ink); padding: 24px;
+  display: grid; grid-template-columns: 64px 1fr; grid-template-rows: auto auto; gap: 16px 20px;
+  position: relative;
+}
+.attr-card .glyph {
+  grid-row: 1 / 3; width: 64px; height: 64px;
+  background: var(--color-yellow); border: 2px solid var(--color-ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 30px;
+}
+.attr-card h4 {
+  font-family: var(--font-display); font-size: 28px; line-height: .95; letter-spacing:0;
+  text-transform: uppercase; margin: 0; align-self: end;
+}
+.attr-card .body { grid-column: 1 / 3; display: flex; flex-direction: column; gap: 10px; }
+.attr-card .body p { font-size: 14px; line-height: 1.45; margin: 0; }
+.attr-card .row { display: flex; gap: 6px; flex-wrap: wrap; }
+.attr-card .drain {
+  font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase;
+  color: var(--color-mute); padding: 4px 8px; border: 1px solid var(--color-rule);
+}
+.attr-card .lbl-row { display: flex; justify-content: space-between; align-items: center; }
+
+/* ============================================================
+   Classes (Arquétipos)
+   ============================================================ */
+.cls-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.cls-card {
+  background: var(--color-paper); border: 2px solid var(--color-ink);
+  padding: 0; display: flex; flex-direction: column; position: relative;
+}
+.cls-card .slot {
+  height: 240px; border-bottom: 2px solid var(--color-ink); background: var(--color-paper-warm);
+  position: relative; overflow: hidden;
+}
+.cls-card .body { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.cls-card .tag-row { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.cls-card h4 { font-family: var(--font-display); font-size: 26px; line-height: .95; letter-spacing:0; text-transform: uppercase; margin: 0; }
+.cls-card .func { font-size: 14px; line-height: 1.45; color: var(--color-mute); }
+.cls-card .power {
+  border: 2px solid var(--color-ink); padding: 10px 12px; background: var(--color-yellow);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.cls-card .power .k { font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; }
+.cls-card .power .v { font-family: var(--font-display); font-size: 16px; line-height: 1; letter-spacing:0; text-transform: uppercase; }
+.cls-card .power .desc { font-size: 12px; line-height: 1.35; margin-top: 4px; }
+.cls-card .weak { font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; color: var(--color-mute); border-top: 1px solid var(--color-rule); padding-top: 10px; }
+.cls-card .weak b { display: block; color: var(--color-ink); margin-bottom: 4px; }
+.cls-card.companion { background: var(--color-ink); color: var(--color-paper); }
+.cls-card.companion .slot { background: var(--color-ink-soft); border-bottom-color: var(--color-ink); }
+.cls-card.companion .func { color: var(--color-on-ink-soft); }
+.cls-card a[href] { min-height: 44px; display: inline-flex; align-items: center; }
+.cls-card.companion .weak { color: var(--color-mute-soft); border-top-color: var(--color-ink-rule); }
+.cls-card.companion .weak b { color: var(--color-paper); }
+.cls-card.companion .power { background: var(--color-yellow); color: var(--color-ink); }
+
+/* ============================================================
+   Bestiário — base + variants
+   ============================================================ */
+.beast-list { display: flex; flex-direction: column; gap: 32px; }
+.beast {
+  background: var(--color-paper); border: 2px solid var(--color-ink);
+  display: grid; gap: 0;
+  position: relative;
+}
+.beast .slot { background: var(--color-paper-warm); position: relative; overflow: hidden; }
+.beast .meta-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 12px 18px; border-bottom: 2px solid var(--color-ink); background: var(--color-paper);
+}
+.beast .meta-bar .badge {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--color-ink);
+  color: var(--color-paper); padding: 8px 14px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase;
+}
+.beast .meta-bar .badge .num-yellow { color: var(--color-yellow); }
+.beast .name {
+  font-family: var(--font-display); font-size: clamp(40px, 4.4vw, 64px);
+  line-height: .85; letter-spacing:0; text-transform: uppercase; margin: 0 0 12px;
+}
+.beast .tagline { font-family: var(--font-sans); font-weight: 500; font-size: 17px; line-height: 1.4; margin: 0 0 0; max-width: 32ch; }
+.beast .tagline em { font-style: normal; background: var(--color-yellow); padding: 0 .12em; }
+.beast .ficha-col { padding: 28px 28px 24px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.beast .info-row {
+  border: 2px solid var(--color-ink); display: flex; align-items: stretch;
+}
+.beast .info-row .ico-wrap {
+  width: 56px; min-width: 56px; background: var(--color-ink); color: var(--color-yellow);
+  display: flex; align-items: center; justify-content: center;
+}
+.beast .info-row .ico-wrap svg { width: 22px; height: 22px; }
+.beast .info-row .body { padding: 10px 14px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.beast .info-row .body .k { font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; color: var(--color-mute); }
+.beast .info-row .body .v { font-family: var(--font-sans); font-weight: 600; font-size: 14px; line-height: 1.35; }
+.beast .info-row.stack { flex-direction: column; }
+.beast .info-row.stack .ico-wrap { width: 100%; min-width: 0; padding: 6px 0; }
+.beast .threat {
+  display: flex; flex-direction: column; gap: 8px; border: 2px solid var(--color-ink);
+  padding: 14px 16px; background: var(--color-paper);
+}
+.beast .threat .lvl { font-family: var(--font-display); font-size: 28px; line-height: 1; letter-spacing:0; }
+.beast .threat .lvl.crit { color: var(--color-signal-red); }
+.beast .quote {
+  background: var(--color-ink); color: var(--color-paper);
+  padding: 18px 18px 22px; border: 2px solid var(--color-ink); position: relative;
+  font-family: var(--font-display); font-size: 22px; line-height: 1.15; letter-spacing:0;
+}
+.beast .quote::before { content: "\201C"; position: absolute; left: 12px; top: -10px; color: var(--color-yellow); font-family: var(--font-display); font-size: 64px; line-height: 1; }
+.beast .quote::after { content: "\201D"; position: absolute; right: 12px; bottom: -34px; color: var(--color-yellow); font-family: var(--font-display); font-size: 64px; line-height: 1; }
+.beast .contras {
+  border: 2px solid var(--color-ink); padding: 16px;
+  display: grid; grid-template-columns: auto 1fr; gap: 12px 18px; align-items: center;
+  background: var(--color-paper);
+}
+.beast .contras .lbl-tag { font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; color: var(--color-mute); writing-mode: vertical-rl; transform: rotate(180deg); border-right: 1px solid var(--color-rule); padding-right: 6px; }
+.beast .contras .steps { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.beast .step {
+  display: flex; align-items: center; gap: 8px;
+  border: 1.5px solid var(--color-ink); padding: 8px 10px; background: var(--color-paper);
+}
+.beast .step .n {
+  width: 22px; height: 22px; background: var(--color-yellow);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 13px; line-height: 1;
+  border: 1.5px solid var(--color-ink);
+}
+.beast .step .t { font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase; font-weight: 600; }
+.beast .step.arrow { border: 0; padding: 0; }
+
+.beast .footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 12px 18px; border-top: 2px solid var(--color-ink);
+  background: var(--color-paper-warm);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase;
+}
+.beast .footer .left { display: flex; gap: 12px; align-items: center; }
+.beast .footer a[href] { min-height: 44px; display: inline-flex; align-items: center; }
+
+/* Variant layouts */
+.beast.v-A { grid-template-columns: 1.3fr 1fr; }
+.beast.v-A .slot { border-right: 2px solid var(--color-ink); min-height: 520px; }
+
+.beast.v-B { grid-template-columns: 1fr; }
+.beast.v-B .slot { border-bottom: 2px solid var(--color-ink); height: 380px; }
+
+.beast.v-C { grid-template-columns: 1fr 1.3fr; }
+.beast.v-C .slot { border-left: 2px solid var(--color-ink); min-height: 520px; order: 2; }
+.beast.v-C .ficha-col { order: 1; }
+
+.beast.v-D { grid-template-columns: 1fr 1.2fr 1fr; }
+.beast.v-D .slot { border-right: 2px solid var(--color-ink); min-height: 540px; }
+.beast.v-D .right-col {
+  border-left: 2px solid var(--color-ink); padding: 24px;
+  display: flex; flex-direction: column; gap: 16px; background: var(--color-paper-warm);
+}
+
+/* Drain bars (used in variant fichas) */
+.dbar { display: grid; grid-template-columns: 90px 1fr auto; gap: 10px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase; }
+.dbar .k { font-weight: 600; }
+.dbar .bar { height: 8px; background: var(--color-paper-warm); border: 1.5px solid var(--color-ink); position: relative; }
+.dbar .bar > i { display: block; height: 100%; background: var(--color-signal-red); }
+.dbar .v { color: var(--color-signal-red); font-weight: 700; }
+
+/* ============================================================
+   Fases (trail)
+   ============================================================ */
+.phases { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 2px solid var(--color-ink); background: var(--color-paper); }
+.phase {
+  border-right: 2px solid var(--color-ink); padding: 24px;
+  display: flex; flex-direction: column; gap: 14px; position: relative;
+  min-height: 480px;
+}
+.phase:last-child { border-right: 0; }
+.phase .step-n {
+  width: 44px; height: 44px; background: var(--color-yellow); border: 2px solid var(--color-ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 22px; line-height: 1;
+}
+.phase h4 { font-family: var(--font-display); font-size: 22px; line-height: 1; letter-spacing:0; text-transform: uppercase; margin: 0; }
+.phase .obj {
+  background: var(--color-ink); color: var(--color-yellow); padding: 6px 10px;
+  font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; align-self: flex-start;
+}
+.phase .desc { font-size: 13px; line-height: 1.45; color: var(--color-mute); margin: 0; }
+.phase .enemies { display: flex; flex-direction: column; gap: 6px; }
+.phase .enemy { font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase; color: var(--color-ink); display: flex; gap: 6px; align-items: baseline; }
+.phase .enemy::before { content: "×"; color: var(--color-signal-red); font-weight: 700; }
+.phase .boss { font-family: var(--font-sans); font-weight: 800; font-size: 13px; letter-spacing:0; text-transform: uppercase; padding: 8px 10px; border: 2px solid var(--color-signal-red); color: var(--color-signal-red); margin-top: auto; }
+.phase .skill { background: var(--color-yellow); border: 2px solid var(--color-ink); padding: 8px 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase; font-weight: 600; }
+.phase .msg { font-family: var(--font-display); font-size: 16px; line-height: 1.1; letter-spacing:0; }
+
+/* ============================================================
+   Skills
+   ============================================================ */
+.skills-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.skill-card {
+  background: var(--color-paper); border: 2px solid var(--color-paper); color: var(--color-ink);
+  padding: 20px; display: flex; flex-direction: column; gap: 12px; position: relative;
+  min-height: 240px;
+}
+.section.dark .skill-card { background: var(--color-ink); border-color: var(--color-ink-rule); color: var(--color-paper); }
+.skill-card .ico {
+  width: 44px; height: 44px; background: var(--color-yellow); border: 2px solid var(--color-paper);
+  display: flex; align-items: center; justify-content: center;
+}
+.section.dark .skill-card .ico { border-color: var(--color-ink); }
+.skill-card h4 { font-family: var(--font-display); font-size: 22px; line-height: 1; letter-spacing:0; text-transform: uppercase; margin: 0; }
+.skill-card .type { font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; color: var(--color-yellow); }
+.skill-card .arrow-line {
+  display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size:11px;
+  letter-spacing:0; text-transform: uppercase;
+}
+.skill-card .arrow-line .b1, .skill-card .arrow-line .b2 { padding: 4px 6px; border: 1px solid currentColor; }
+.skill-card .arrow-line .b2 { background: var(--color-yellow); color: var(--color-ink); border-color: var(--color-yellow); }
+.skill-card .usado { font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; color: var(--color-mute-soft); margin-top: auto; }
+
+/* ============================================================
+   Inventário
+   ============================================================ */
+.inv-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.inv-cell {
+  background: var(--color-paper); border: 2px solid var(--color-ink);
+  padding: 20px; min-height: 200px; display: flex; flex-direction: column; gap: 14px; position: relative;
+}
+.inv-cell.hero-only { background: var(--color-yellow); }
+.inv-cell.enemy-only { background: var(--color-ink); color: var(--color-paper); }
+.inv-cell .inv-ico {
+  width: 56px; height: 56px; border: 2px solid currentColor;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 26px; line-height: 1;
+}
+.inv-cell h4 { font-family: var(--font-display); font-size: 18px; line-height: 1; letter-spacing:0; text-transform: uppercase; margin: 0; }
+.inv-cell p { font-size: 12px; line-height: 1.4; margin: 0; color: var(--color-mute); }
+.inv-cell.enemy-only p { color: #b6b6b6; }
+.inv-cell .rarity {
+  position: absolute; top: 10px; right: 10px;
+  font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase;
+  padding: 3px 6px; border: 1px solid currentColor;
+}
+
+/* ============================================================
+   Combate (steps)
+   ============================================================ */
+.combat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: 2px solid var(--color-ink); background: var(--color-paper); }
+.combat-step { border-right: 2px solid var(--color-ink); padding: 22px; display: flex; flex-direction: column; gap: 12px; position: relative; }
+.combat-step:last-child { border-right: 0; background: var(--color-yellow); }
+.combat-step .n { font-family: var(--font-display); font-size: 38px; line-height: 1; letter-spacing:0; }
+.combat-step h4 { font-family: var(--font-display); font-size: 18px; line-height: 1; letter-spacing:0; text-transform: uppercase; margin: 0; }
+.combat-step p { font-size: 13px; line-height: 1.4; margin: 0; }
+.combat-example {
+  margin-top: 24px; border: 2px solid var(--color-ink); background: var(--color-ink); color: var(--color-paper);
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+}
+.combat-example .ex-cell { border-right: 1px solid var(--color-ink-rule); padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+.combat-example .ex-cell:last-child { border-right: 0; background: var(--color-yellow); color: var(--color-ink); }
+.combat-example .ex-cell .k { font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase; color: var(--color-yellow); }
+.combat-example .ex-cell:last-child .k { color: var(--color-ink); }
+.combat-example .ex-cell .v { font-family: var(--font-display); font-size: 17px; line-height: 1.1; letter-spacing:0; text-transform: uppercase; }
+.combat-example .ex-cell .reward { font-family: var(--font-mono); font-size: 12px; letter-spacing:0; text-transform: uppercase; font-weight: 700; }
+.combat-example .ex-cell .reward + .reward { margin-top: -2px; }
+
+/* ============================================================
+   Progressão
+   ============================================================ */
+.prog-list { display: flex; flex-direction: column; gap: 0; border: 2px solid var(--color-ink); }
+.prog-row { display: grid; grid-template-columns: 100px 1fr 1.6fr 220px; border-bottom: 2px solid var(--color-ink); align-items: stretch; background: var(--color-paper); }
+.prog-row:last-child { border-bottom: 0; }
+.prog-row.cap { background: var(--color-yellow); }
+.prog-row > div { padding: 22px 24px; border-right: 2px solid var(--color-ink); display: flex; flex-direction: column; justify-content: center; }
+.prog-row > div:last-child { border-right: 0; }
+.prog-row .lv { font-family: var(--font-display); font-size: 38px; line-height: 1; letter-spacing:0; }
+.prog-row .nm { font-family: var(--font-display); font-size: 22px; line-height: 1; letter-spacing:0; text-transform: uppercase; }
+.prog-row .desc { font-size: 14px; line-height: 1.45; }
+.prog-row .req {
+  font-family: var(--font-mono); font-size:11px; letter-spacing:0; text-transform: uppercase;
+  color: var(--color-mute);
+}
+.prog-row .req b { display: block; color: var(--color-ink); font-family: var(--font-sans); font-size: 11px; letter-spacing:0; margin-bottom: 4px; }
+
+/* ============================================================
+   Series cards
+   ============================================================ */
+.series-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.series-card { background: var(--color-paper); border: 2px solid var(--color-ink); padding: 22px; display: flex; flex-direction: column; gap: 12px; min-height: 200px; }
+.series-card h4 { font-family: var(--font-display); font-size: 22px; line-height: 1; letter-spacing:0; text-transform: uppercase; margin: 0; }
+.series-card p { font-size: 13px; line-height: 1.45; margin: 0; color: var(--color-mute); }
+.series-card .pill { align-self: flex-start; }
+
+/* ============================================================
+   Final / Fechamento
+   ============================================================ */
+.outro { background: var(--color-yellow); color: var(--color-ink); padding: 96px 0; border-top: 2px solid var(--color-ink); }
+.outro h2 { font-family: var(--font-display); font-size: clamp(38px, 5vw, 72px); line-height: .98; letter-spacing: 0; text-transform: uppercase; margin: 0 0 28px; max-width: 22ch; text-wrap: balance; }
+.outro p { font-size: 18px; line-height: 1.5; max-width: 60ch; margin: 0 0 12px; }
+.outro .cta-block { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+.outro .micro { font-family: var(--font-mono); font-size: 11px; letter-spacing:0; text-transform: uppercase; }
+
+/* ============================================================
+   image-slot custom theming for monster slots
+   ============================================================ */
+image-slot.monster-slot {
+  --slot-bg: transparent;
+  --slot-border: transparent;
+  --slot-color: var(--color-mute);
+  width: 100%; height: 100%; display: block;
+}
+
+/* slot caption (sits below or over the image-slot) */
+.slot-caption {
+  position: absolute; left: 14px; bottom: 14px; right: 14px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  font-family: var(--font-mono); font-size:11px; letter-spacing:0;
+  text-transform: uppercase; color: var(--color-mute);
+  pointer-events: none;
+  z-index: 1;
+}
+/* hide caption + ticks once the slot has real art */
+.slot:has(image-slot[data-filled]) .slot-caption,
+.slot:has(image-slot[data-filled]) .slot-grid-bg,
+.slot:has(image-slot[data-filled]) .slot-corner { display: none; }
+.slot-caption .lbl-pill {
+  background: var(--color-paper); border: 1.5px solid var(--color-ink);
+  color: var(--color-ink); padding: 4px 8px;
+}
+.slot-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--color-rule) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-rule) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: .35; pointer-events: none;
+}
+.slot-corner {
+  position: absolute; width: 16px; height: 16px;
+  border: 2px solid var(--color-ink);
+  pointer-events: none;
+}
+.slot-corner.tl { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+.slot-corner.tr { top: 8px; right: 8px; border-left: 0; border-bottom: 0; }
+.slot-corner.bl { bottom: 8px; left: 8px; border-right: 0; border-top: 0; }
+.slot-corner.br { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+
+/* ============================================================
+   Responsive (minimal — page is designed at desktop width)
+   ============================================================ */
+@media (max-width: 1100px) {
+  .mech-grid { grid-template-columns: repeat(3, 1fr); }
+  .attr-grid { grid-template-columns: repeat(2, 1fr); }
+  .cls-grid  { grid-template-columns: repeat(2, 1fr); }
+  .skills-grid { grid-template-columns: repeat(3, 1fr); }
+  .inv-grid    { grid-template-columns: repeat(3, 1fr); }
+  .phases      { grid-template-columns: 1fr 1fr; }
+  .phase { border-right: 0; border-bottom: 2px solid var(--color-ink); }
+  .combat-grid, .combat-example { grid-template-columns: repeat(3, 1fr); }
+  .combat-step { border-bottom: 2px solid var(--color-ink); }
+  .prog-row { grid-template-columns: 80px 1fr; }
+  .prog-row > div:nth-child(n+3) { grid-column: 1 / 3; border-right: 0; border-top: 2px solid var(--color-ink); }
+  .series-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 720px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .beast.v-A, .beast.v-C, .beast.v-D { grid-template-columns: 1fr; }
+  .beast .slot { border-right: 0 !important; border-left: 0 !important; border-bottom: 2px solid var(--color-ink) !important; min-height: 320px !important; }
+  .beast.v-C .ficha-col { order: 2; }
+  .beast.v-C .slot { order: 1; }
+  .beast.v-D .right-col { border-left: 0; border-top: 2px solid var(--color-ink); }
+  .beast .ficha-col > [style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 12px !important; }
+  .beast .info-row.stack,
+  .beast .info-row.stack > div { width: 100%; }
+  .beast .info-row.stack > div[style*="grid-template-columns"] { grid-template-columns: 56px minmax(0, 1fr) !important; }
+  .mech-grid, .attr-grid, .cls-grid, .skills-grid, .inv-grid, .series-grid { grid-template-columns: 1fr; }
+  .combat-grid, .combat-example, .prog-row { grid-template-columns: 1fr !important; }
+  .combat-step, .ex-cell, .prog-row > div { border-right: 0 !important; }
+  .sec-head { flex-direction: column; align-items: flex-start; }
+  main, .section, .wrap { overflow-x: clip; }
+}

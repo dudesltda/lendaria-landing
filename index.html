@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1440"/>
+<title>Academia Lendár[IA] — O futuro pertence a quem constrói com IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="assets/logo/favicon.png"/>
+<link rel="stylesheet" href="colors_and_type.css"/>
+
+<style>
+  /* ============================================================
+     NOVA LANDING DESKTOP — Academia Lendár[IA]
+     Estrutura 1:1 com academialendaria.ai · Branding brutalist
+     Tipografia refinada · 8 SVGs reais · Fundo-newsletter aplicado
+     ============================================================ */
+
+  html, body { background: var(--color-paper); }
+  body {
+    min-width: 1440px;
+    color: var(--color-ink);
+    background:
+      repeating-linear-gradient(90deg, rgba(25,25,25,0.055) 0 1px, transparent 1px 24px),
+      repeating-linear-gradient(0deg, rgba(25,25,25,0.035) 0 1px, transparent 1px 24px),
+      var(--color-paper);
+  }
+
+  .wrap {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter-desktop);
+  }
+
+  /* ============================================================
+     TYPE SCALE — refined hierarchy
+     mega 96 · h1 80 · h2 56 · h3 36 · h4 24 · lead 20 · body 16
+     ============================================================ */
+  .t-mega-display { font-family: var(--font-display); font-size: 96px; line-height: 0.92; text-transform: uppercase; letter-spacing: 0; margin: 0; }
+  .t-h1-display   { font-family: var(--font-display); font-size: 80px; line-height: 0.94; text-transform: uppercase; letter-spacing: 0; margin: 0; }
+  .t-h2-display   { font-family: var(--font-display); font-size: 56px; line-height: 0.98; text-transform: uppercase; letter-spacing: 0; margin: 0; }
+  .t-h3-display   { font-family: var(--font-display); font-size: 36px; line-height: 1; text-transform: uppercase; letter-spacing: 0; margin: 0; }
+  .t-h4           { font-family: var(--font-sans); font-weight: 700; font-size: 24px; line-height: 1.15; margin: 0; }
+  .t-lead         { font-family: var(--font-sans); font-weight: 400; font-size: 20px; line-height: 1.5; margin: 0; }
+  .t-body         { font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1.55; margin: 0; }
+  .t-mono         { font-family: var(--font-mono); font-weight: 500; font-size: 12px; line-height: 1.2; letter-spacing: var(--track-loose); text-transform: uppercase; margin: 0; }
+  .t-mono-md      { font-family: var(--font-mono); font-weight: 500; font-size: 14px; line-height: 1.2; letter-spacing: var(--track-loose); text-transform: uppercase; margin: 0; }
+  .hl  { background: var(--color-yellow); color: var(--color-ink); padding: 0 .08em; }
+  .hl-dark { background: var(--color-ink); color: var(--color-yellow); padding: 0 .08em; }
+  .brk::before { content: "["; }
+  .brk::after  { content: "]"; }
+
+  /* ============================================================
+     NAV
+     ============================================================ */
+  .nav { position: sticky; top: 0; z-index: 50; background: var(--color-paper); border-bottom: 2px solid var(--color-ink); }
+  .nav-inner { height: 72px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 40px; }
+  .nav-logo {
+    position: relative;
+    height: 72px;
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    padding: 0 18px;
+  }
+  .nav-logo img { height: 24px; width: auto; display: block; filter: invert(1); }
+  .nav-links { display: flex; gap: 38px; justify-content: center; }
+  .nav-links a { font-family: var(--font-sans); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-loose); color: var(--color-ink); transition: all 100ms linear; }
+  .nav-links a:hover { background: var(--color-yellow); padding: 4px 6px; margin: -4px -6px; }
+  .nav-cta { display: flex; gap: var(--space-3); align-items: center; }
+
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+  .btn { display: inline-flex; align-items: center; gap: var(--space-3); font-family: var(--font-sans); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-loose); padding: 12px 20px; border: 2px solid var(--color-ink); background: var(--color-paper); color: var(--color-ink); transition: all 100ms linear; cursor: pointer; }
+  .btn:hover { background: var(--color-ink); color: var(--color-paper); }
+  .btn-primary { background: var(--color-yellow); }
+  .btn-primary:hover { background: var(--color-ink); color: var(--color-yellow); }
+  .btn-lg { padding: 16px 26px; font-size: 14px; }
+  .btn-block { box-shadow: 8px 8px 0 var(--color-ink); }
+  .btn-block:hover { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--color-ink); }
+  .btn-dark { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+  .btn-dark:hover { background: var(--color-yellow); color: var(--color-ink); border-color: var(--color-yellow); }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero { position: relative; overflow: hidden; border-bottom: 2px solid var(--color-ink); background: var(--color-paper); }
+  .hero::before {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 1px; background: repeating-linear-gradient(90deg, var(--color-ink) 0 8px, transparent 8px 16px);
+  }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 32px; font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); }
+  .hero-eyebrow::before { content: ""; width: 32px; height: 3px; background: var(--color-yellow); }
+  .hero-title { font-family: var(--font-display); font-size: 96px; line-height: 0.92; text-transform: uppercase; letter-spacing: 0; max-width: 18ch; margin: 0 0 40px; }
+  .hero-sub { font-family: var(--font-sans); font-size: 22px; line-height: 1.5; max-width: 56ch; color: var(--color-ink); margin-bottom: 40px; }
+  .hero-actions { display: flex; gap: 20px; align-items: center; }
+  .hero-grid { min-height: 624px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(420px, .92fr); border-left: 2px solid var(--color-ink); border-right: 2px solid var(--color-ink); }
+  .hero-main { background: var(--color-yellow); border-right: 2px solid var(--color-ink); padding: 40px 48px 34px; display: flex; flex-direction: column; justify-content: space-between; }
+  .hero-utility { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 32px; padding-bottom: 24px; border-bottom: 2px solid var(--color-ink); }
+  .hero-eyebrow { margin-bottom: 0; color: var(--color-ink); }
+  .hero-eyebrow::before { background: var(--color-ink); }
+  .hero-ticket { border: 2px solid var(--color-ink); background: var(--color-paper); box-shadow: 4px 4px 0 var(--color-ink); padding: 10px 12px; min-width: 176px; font-family: var(--font-mono); font-size: 11px; line-height: 1.35; letter-spacing: var(--track-loose); text-transform: uppercase; }
+  .hero-title { font-size: 82px; line-height: 0.9; letter-spacing: 0; max-width: 12.4ch; margin: 36px 0 0; }
+  .hero-title .hl { display: inline-block; background: var(--color-ink); color: var(--color-yellow); padding: 0 .06em; }
+  .hero-sub { font-size: 20px; line-height: 1.35; max-width: 37ch; margin: 24px 0 0; font-weight: 600; }
+  .hero-actions { gap: 16px; margin-top: 28px; }
+  .hero-side { position: relative; display: grid; grid-template-rows: 1fr auto; background: var(--color-paper); }
+  .hero-shot { position: relative; margin: 36px 48px 0; border: 2px solid var(--color-ink); box-shadow: 10px 10px 0 var(--color-ink); overflow: hidden; aspect-ratio: 5/4; background: var(--color-ink); }
+  .hero-shot img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.08); }
+  .hero-shot::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(246,195,36,.18), transparent 58%); mix-blend-mode: multiply; pointer-events: none; }
+  .hero-photo-caption { position: absolute; left: 16px; bottom: 16px; right: 16px; display: flex; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 10px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-yellow); z-index: 1; }
+  .hero-system { margin: 24px 48px 36px; border: 2px solid var(--color-ink); background: var(--color-paper); box-shadow: 8px 8px 0 var(--color-yellow); }
+  .hero-system-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 14px; background: var(--color-ink); color: var(--color-yellow); font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; }
+  .hero-system-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .hero-system-cell { min-height: 92px; padding: 16px; border-right: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); }
+  .hero-system-cell:nth-child(2n) { border-right: 0; }
+  .hero-system-cell:nth-last-child(-n+2) { border-bottom: 0; }
+  .hero-system-cell strong { display: block; font-family: var(--font-display); font-size: 28px; line-height: .95; letter-spacing: 0; text-transform: uppercase; }
+  .hero-system-cell span { display: block; margin-top: 8px; font-family: var(--font-mono); font-size: 10px; line-height: 1.45; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); }
+
+  /* ============================================================
+     STATS STRIP
+     ============================================================ */
+  /* ============================================================
+     COMPANIES MARQUEE
+     ============================================================ */
+  .companies { background: var(--color-ink); color: var(--color-paper); padding: 68px 0 72px; border-top: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); overflow: hidden; }
+  .companies-eyebrow { text-align: center; margin-bottom: 36px; font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-on-ink-soft); }
+  .marquee { position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent 0, black 80px, black calc(100% - 80px), transparent 100%); }
+  .marquee-track { display: flex; gap: 64px; animation: marquee 40s linear infinite; width: max-content; align-items: center; }
+  .marquee-item { display: flex; align-items: center; justify-content: center; width: 170px; height: 42px; flex-shrink: 0; }
+  .marquee-item img { max-width: 150px; max-height: 28px; width: auto; height: auto; display: block; opacity: 0.85; transition: opacity 200ms linear; }
+  .marquee-item:hover img { opacity: 1; }
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ============================================================
+     MANIFESTO QUOTE
+     ============================================================ */
+  .manifesto-quote { padding: 96px 0; background: var(--color-paper); }
+  .mq-grid { display: grid; grid-template-columns: 120px 1fr; gap: 48px; align-items: start; max-width: 1100px; }
+  .mq-mark { font-family: var(--font-display); font-size: 180px; line-height: 0.6; color: var(--color-yellow); }
+  .mq-text { font-family: var(--font-display); font-size: 38px; line-height: 1.08; text-transform: uppercase; letter-spacing: 0; max-width: 26ch; }
+  .mq-text em { font-style: normal; background: var(--color-yellow); padding: 0 .06em; }
+  .mq-author { margin-top: 40px; display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); }
+  .mq-author::before { content: ""; width: 24px; height: 2px; background: var(--color-ink); }
+
+  /* ============================================================
+     WHY EXISTS — 4 NUMBERED CARDS
+     ============================================================ */
+  .why { padding: 96px 0; background: var(--color-paper-warm); border-top: 2px solid var(--color-ink); }
+  .why-head { display: grid; grid-template-columns: 200px 1fr; gap: 56px; margin-bottom: 64px; align-items: end; }
+  .why-num-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); border-top: 2px solid var(--color-ink); padding-top: 12px; }
+  .why-title { font-family: var(--font-display); font-size: 68px; line-height: 0.96; text-transform: uppercase; letter-spacing: 0; max-width: 17ch; margin: 0; }
+  .why-intro { grid-column: 2; font-family: var(--font-sans); font-size: 18px; line-height: 1.5; max-width: 58ch; margin: 20px 0 0; }
+  .why-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(260px, auto); gap: 12px; }
+  .why-card {
+    background: var(--color-paper);
+    border: 2px solid var(--color-ink);
+    padding: 24px;
+    display: flex; flex-direction: column; gap: 20px;
+    min-height: 260px;
+    transition: all 100ms linear;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--color-ink); }
+  .why-card.featured { background: var(--color-yellow); }
+  .why-card.dark { background: var(--color-ink); color: var(--color-paper); }
+  .why-card.wide { grid-column: span 2; }
+  .why-card.tall { grid-row: span 1; }
+  .why-card.media {
+    grid-column: span 2;
+    background: var(--color-paper);
+    min-height: 360px;
+    justify-content: flex-end;
+  }
+  .why-card.media > .why-card-num,
+  .why-card.media > .why-card-title,
+  .why-card.media > .why-card-body {
+    position: relative;
+    z-index: 2;
+  }
+  .why-card.media > .why-card-num { margin-bottom: auto; }
+  .why-card-num { font-family: var(--font-mono); font-size: 11px; line-height: 1; letter-spacing: var(--track-loose); border: 1px solid currentColor; padding: 6px 8px; align-self: flex-start; }
+  .why-card-title { font-family: var(--font-display); font-size: 28px; line-height: .96; text-transform: uppercase; max-width: 14ch; }
+  .why-card.wide .why-card-title,
+  .why-card.media .why-card-title { font-size: 34px; max-width: 18ch; }
+  .why-card.featured.wide .why-card-title { font-size: 38px; max-width: 20ch; }
+  .why-card-body { font-family: var(--font-sans); font-size: 14px; line-height: 1.5; color: var(--color-ink); margin-top: auto; max-width: 64ch; }
+  .why-card.dark .why-card-body,
+  .why-card.dark .why-card-stat span { color: var(--color-on-ink); }
+  .why-card.featured .why-card-body { color: var(--color-ink); }
+  .why-card-stats { display: flex; flex-direction: column; gap: 0; margin-top: auto; border-top: 2px solid currentColor; }
+  .why-card-stat { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: var(--track-loose); text-transform: uppercase; border-bottom: 1px solid currentColor; padding: 12px 0; }
+  .why-card-stat:last-child { border-bottom: 0; }
+  .why-card-stat strong { font-family: var(--font-display); font-size: 26px; letter-spacing: 0; line-height: .9; }
+  .why-icon { width: 42px; height: 42px; border: 2px solid currentColor; display: grid; place-items: center; font-family: var(--font-display); font-size: 24px; line-height: 1; }
+  .why-visual-network,
+  .why-visual-orbit,
+  .why-visual-globe {
+    position: relative;
+    min-height: 92px;
+    margin: 8px 0 14px;
+  }
+  .why-visual-globe {
+    min-height: 198px;
+    margin: -4px 0 8px;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+  }
+  .why-card.media .why-visual-globe {
+    position: absolute;
+    top: -210px;
+    right: -170px;
+    width: 650px;
+    height: 650px;
+    min-height: 0;
+    margin: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .globe-shell {
+    position: relative;
+    width: min(280px, 100%);
+    aspect-ratio: 1;
+    margin: -36px auto -24px;
+    user-select: none;
+  }
+  .why-card.media .globe-shell {
+    width: 100%;
+    margin: 0;
+    opacity: 1;
+  }
+  /* Removidos completamente ::before e ::after do globe-shell para limpar o grid/radar e os marcadores falsos */
+  .globe-shell canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    cursor: grab;
+    opacity: 0;
+    touch-action: none;
+    transition: opacity 800ms linear;
+  }
+  .globe-shell canvas.is-ready { opacity: 1; }
+  .globe-marker {
+    position: absolute;
+    bottom: anchor(center);
+    left: anchor(center);
+    translate: -50% 50%;
+    margin-bottom: 0;
+    padding: 5px 8px;
+    background: #1a1a2e;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.4s, filter 0.4s, transform 0.2s, padding 0.2s;
+    pointer-events: auto;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .globe-marker:hover,
+  .globe-marker.is-expanded {
+    bottom: anchor(top);
+    translate: -50% -8px;
+    padding: 7px 10px;
+    border-radius: 4px;
+    transform: scale(1.05);
+    z-index: 10;
+  }
+  .globe-marker span {
+    display: none;
+    margin-top: 4px;
+    font-family: system-ui, sans-serif;
+    color: #fff;
+    font-size: 8px;
+    font-weight: normal;
+    opacity: .82;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+  .globe-marker.is-expanded span { display: block; }
+
+  .globe-marker[data-marker="alegrete"] { position-anchor: --cobe-alegrete; opacity: var(--cobe-visible-alegrete, 0); filter: blur(calc((1 - var(--cobe-visible-alegrete, 0)) * 8px)); }
+  .globe-marker[data-marker="anapolis"] { position-anchor: --cobe-anapolis; opacity: var(--cobe-visible-anapolis, 0); filter: blur(calc((1 - var(--cobe-visible-anapolis, 0)) * 8px)); }
+  .globe-marker[data-marker="araxa"] { position-anchor: --cobe-araxa; opacity: var(--cobe-visible-araxa, 0); filter: blur(calc((1 - var(--cobe-visible-araxa, 0)) * 8px)); }
+  .globe-marker[data-marker="baixada-santista"] { position-anchor: --cobe-baixada-santista; opacity: var(--cobe-visible-baixada-santista, 0); filter: blur(calc((1 - var(--cobe-visible-baixada-santista, 0)) * 8px)); }
+  .globe-marker[data-marker="balneario-camboriu"] { position-anchor: --cobe-balneario-camboriu; opacity: var(--cobe-visible-balneario-camboriu, 0); filter: blur(calc((1 - var(--cobe-visible-balneario-camboriu, 0)) * 8px)); }
+  .globe-marker[data-marker="bauru"] { position-anchor: --cobe-bauru; opacity: var(--cobe-visible-bauru, 0); filter: blur(calc((1 - var(--cobe-visible-bauru, 0)) * 8px)); }
+  .globe-marker[data-marker="belo-horizonte"] { position-anchor: --cobe-belo-horizonte; opacity: var(--cobe-visible-belo-horizonte, 0); filter: blur(calc((1 - var(--cobe-visible-belo-horizonte, 0)) * 8px)); }
+  .globe-marker[data-marker="belem"] { position-anchor: --cobe-belem; opacity: var(--cobe-visible-belem, 0); filter: blur(calc((1 - var(--cobe-visible-belem, 0)) * 8px)); }
+  .globe-marker[data-marker="bento-goncalves"] { position-anchor: --cobe-bento-goncalves; opacity: var(--cobe-visible-bento-goncalves, 0); filter: blur(calc((1 - var(--cobe-visible-bento-goncalves, 0)) * 8px)); }
+  .globe-marker[data-marker="blumenau"] { position-anchor: --cobe-blumenau; opacity: var(--cobe-visible-blumenau, 0); filter: blur(calc((1 - var(--cobe-visible-blumenau, 0)) * 8px)); }
+  .globe-marker[data-marker="boa-vista"] { position-anchor: --cobe-boa-vista; opacity: var(--cobe-visible-boa-vista, 0); filter: blur(calc((1 - var(--cobe-visible-boa-vista, 0)) * 8px)); }
+  .globe-marker[data-marker="boituva"] { position-anchor: --cobe-boituva; opacity: var(--cobe-visible-boituva, 0); filter: blur(calc((1 - var(--cobe-visible-boituva, 0)) * 8px)); }
+  .globe-marker[data-marker="brasilia"] { position-anchor: --cobe-brasilia; opacity: var(--cobe-visible-brasilia, 0); filter: blur(calc((1 - var(--cobe-visible-brasilia, 0)) * 8px)); }
+  .globe-marker[data-marker="cabo-frio"] { position-anchor: --cobe-cabo-frio; opacity: var(--cobe-visible-cabo-frio, 0); filter: blur(calc((1 - var(--cobe-visible-cabo-frio, 0)) * 8px)); }
+  .globe-marker[data-marker="campinas"] { position-anchor: --cobe-campinas; opacity: var(--cobe-visible-campinas, 0); filter: blur(calc((1 - var(--cobe-visible-campinas, 0)) * 8px)); }
+  .globe-marker[data-marker="cascavel"] { position-anchor: --cobe-cascavel; opacity: var(--cobe-visible-cascavel, 0); filter: blur(calc((1 - var(--cobe-visible-cascavel, 0)) * 8px)); }
+  .globe-marker[data-marker="cuiaba"] { position-anchor: --cobe-cuiaba; opacity: var(--cobe-visible-cuiaba, 0); filter: blur(calc((1 - var(--cobe-visible-cuiaba, 0)) * 8px)); }
+  .globe-marker[data-marker="curitiba"] { position-anchor: --cobe-curitiba; opacity: var(--cobe-visible-curitiba, 0); filter: blur(calc((1 - var(--cobe-visible-curitiba, 0)) * 8px)); }
+  .globe-marker[data-marker="florianopolis"] { position-anchor: --cobe-florianopolis; opacity: var(--cobe-visible-florianopolis, 0); filter: blur(calc((1 - var(--cobe-visible-florianopolis, 0)) * 8px)); }
+  .globe-marker[data-marker="fortaleza"] { position-anchor: --cobe-fortaleza; opacity: var(--cobe-visible-fortaleza, 0); filter: blur(calc((1 - var(--cobe-visible-fortaleza, 0)) * 8px)); }
+  .globe-marker[data-marker="goiânia"] { position-anchor: --cobe-goiânia; opacity: var(--cobe-visible-goiânia, 0); filter: blur(calc((1 - var(--cobe-visible-goiânia, 0)) * 8px)); }
+  .globe-marker[data-marker="governador-valadares"] { position-anchor: --cobe-governador-valadares; opacity: var(--cobe-visible-governador-valadares, 0); filter: blur(calc((1 - var(--cobe-visible-governador-valadares, 0)) * 8px)); }
+  .globe-marker[data-marker="indaiatuba"] { position-anchor: --cobe-indaiatuba; opacity: var(--cobe-visible-indaiatuba, 0); filter: blur(calc((1 - var(--cobe-visible-indaiatuba, 0)) * 8px)); }
+  .globe-marker[data-marker="joinville"] { position-anchor: --cobe-joinville; opacity: var(--cobe-visible-joinville, 0); filter: blur(calc((1 - var(--cobe-visible-joinville, 0)) * 8px)); }
+  .globe-marker[data-marker="juiz-de-fora"] { position-anchor: --cobe-juiz-de-fora; opacity: var(--cobe-visible-juiz-de-fora, 0); filter: blur(calc((1 - var(--cobe-visible-juiz-de-fora, 0)) * 8px)); }
+  .globe-marker[data-marker="jundiai"] { position-anchor: --cobe-jundiai; opacity: var(--cobe-visible-jundiai, 0); filter: blur(calc((1 - var(--cobe-visible-jundiai, 0)) * 8px)); }
+  .globe-marker[data-marker="lisboa"] { position-anchor: --cobe-lisboa; opacity: var(--cobe-visible-lisboa, 0); filter: blur(calc((1 - var(--cobe-visible-lisboa, 0)) * 8px)); }
+  .globe-marker[data-marker="londrina"] { position-anchor: --cobe-londrina; opacity: var(--cobe-visible-londrina, 0); filter: blur(calc((1 - var(--cobe-visible-londrina, 0)) * 8px)); }
+  .globe-marker[data-marker="macae"] { position-anchor: --cobe-macae; opacity: var(--cobe-visible-macae, 0); filter: blur(calc((1 - var(--cobe-visible-macae, 0)) * 8px)); }
+  .globe-marker[data-marker="maceio"] { position-anchor: --cobe-maceio; opacity: var(--cobe-visible-maceio, 0); filter: blur(calc((1 - var(--cobe-visible-maceio, 0)) * 8px)); }
+  .globe-marker[data-marker="maringa"] { position-anchor: --cobe-maringa; opacity: var(--cobe-visible-maringa, 0); filter: blur(calc((1 - var(--cobe-visible-maringa, 0)) * 8px)); }
+  .globe-marker[data-marker="natal"] { position-anchor: --cobe-natal; opacity: var(--cobe-visible-natal, 0); filter: blur(calc((1 - var(--cobe-visible-natal, 0)) * 8px)); }
+  .globe-marker[data-marker="niteroi"] { position-anchor: --cobe-niteroi; opacity: var(--cobe-visible-niteroi, 0); filter: blur(calc((1 - var(--cobe-visible-niteroi, 0)) * 8px)); }
+  .globe-marker[data-marker="nova-lima"] { position-anchor: --cobe-nova-lima; opacity: var(--cobe-visible-nova-lima, 0); filter: blur(calc((1 - var(--cobe-visible-nova-lima, 0)) * 8px)); }
+  .globe-marker[data-marker="orlando"] { position-anchor: --cobe-orlando; opacity: var(--cobe-visible-orlando, 0); filter: blur(calc((1 - var(--cobe-visible-orlando, 0)) * 8px)); }
+  .globe-marker[data-marker="osasco"] { position-anchor: --cobe-osasco; opacity: var(--cobe-visible-osasco, 0); filter: blur(calc((1 - var(--cobe-visible-osasco, 0)) * 8px)); }
+  .globe-marker[data-marker="paulo-afonso"] { position-anchor: --cobe-paulo-afonso; opacity: var(--cobe-visible-paulo-afonso, 0); filter: blur(calc((1 - var(--cobe-visible-paulo-afonso, 0)) * 8px)); }
+  .globe-marker[data-marker="ponta-grossa"] { position-anchor: --cobe-ponta-grossa; opacity: var(--cobe-visible-ponta-grossa, 0); filter: blur(calc((1 - var(--cobe-visible-ponta-grossa, 0)) * 8px)); }
+  .globe-marker[data-marker="porto-alegre"] { position-anchor: --cobe-porto-alegre; opacity: var(--cobe-visible-porto-alegre, 0); filter: blur(calc((1 - var(--cobe-visible-porto-alegre, 0)) * 8px)); }
+  .globe-marker[data-marker="resende"] { position-anchor: --cobe-resende; opacity: var(--cobe-visible-resende, 0); filter: blur(calc((1 - var(--cobe-visible-resende, 0)) * 8px)); }
+  .globe-marker[data-marker="ribeirao-preto"] { position-anchor: --cobe-ribeirao-preto; opacity: var(--cobe-visible-ribeirao-preto, 0); filter: blur(calc((1 - var(--cobe-visible-ribeirao-preto, 0)) * 8px)); }
+  .globe-marker[data-marker="rio-de-janeiro"] { position-anchor: --cobe-rio-de-janeiro; opacity: var(--cobe-visible-rio-de-janeiro, 0); filter: blur(calc((1 - var(--cobe-visible-rio-de-janeiro, 0)) * 8px)); }
+  .globe-marker[data-marker="salvador"] { position-anchor: --cobe-salvador; opacity: var(--cobe-visible-salvador, 0); filter: blur(calc((1 - var(--cobe-visible-salvador, 0)) * 8px)); }
+  .globe-marker[data-marker="sinop"] { position-anchor: --cobe-sinop; opacity: var(--cobe-visible-sinop, 0); filter: blur(calc((1 - var(--cobe-visible-sinop, 0)) * 8px)); }
+  .globe-marker[data-marker="sorocaba"] { position-anchor: --cobe-sorocaba; opacity: var(--cobe-visible-sorocaba, 0); filter: blur(calc((1 - var(--cobe-visible-sorocaba, 0)) * 8px)); }
+  .globe-marker[data-marker="sao-jose-do-rio-preto"] { position-anchor: --cobe-sao-jose-do-rio-preto; opacity: var(--cobe-visible-sao-jose-do-rio-preto, 0); filter: blur(calc((1 - var(--cobe-visible-sao-jose-do-rio-preto, 0)) * 8px)); }
+  .globe-marker[data-marker="sao-luis"] { position-anchor: --cobe-sao-luis; opacity: var(--cobe-visible-sao-luis, 0); filter: blur(calc((1 - var(--cobe-visible-sao-luis, 0)) * 8px)); }
+  .globe-marker[data-marker="sao-paulo"] { position-anchor: --cobe-sao-paulo; opacity: var(--cobe-visible-sao-paulo, 0); filter: blur(calc((1 - var(--cobe-visible-sao-paulo, 0)) * 8px)); }
+  .globe-marker[data-marker="teresina"] { position-anchor: --cobe-teresina; opacity: var(--cobe-visible-teresina, 0); filter: blur(calc((1 - var(--cobe-visible-teresina, 0)) * 8px)); }
+  .globe-marker[data-marker="uberaba"] { position-anchor: --cobe-uberaba; opacity: var(--cobe-visible-uberaba, 0); filter: blur(calc((1 - var(--cobe-visible-uberaba, 0)) * 8px)); }
+  .globe-marker[data-marker="uberlândia"] { position-anchor: --cobe-uberlândia; opacity: var(--cobe-visible-uberlândia, 0); filter: blur(calc((1 - var(--cobe-visible-uberlândia, 0)) * 8px)); }
+  .globe-marker[data-marker="uba"] { position-anchor: --cobe-uba; opacity: var(--cobe-visible-uba, 0); filter: blur(calc((1 - var(--cobe-visible-uba, 0)) * 8px)); }
+  .globe-marker[data-marker="valinhos"] { position-anchor: --cobe-valinhos; opacity: var(--cobe-visible-valinhos, 0); filter: blur(calc((1 - var(--cobe-visible-valinhos, 0)) * 8px)); }
+  .globe-marker[data-marker="vitoria"] { position-anchor: --cobe-vitoria; opacity: var(--cobe-visible-vitoria, 0); filter: blur(calc((1 - var(--cobe-visible-vitoria, 0)) * 8px)); }
+  .globe-marker[data-marker="volta-redonda"] { position-anchor: --cobe-volta-redonda; opacity: var(--cobe-visible-volta-redonda, 0); filter: blur(calc((1 - var(--cobe-visible-volta-redonda, 0)) * 8px)); }
+  .why-visual-network::before {
+    content: "";
+    position: absolute;
+    inset: 16px 10%;
+    background:
+      linear-gradient(25deg, transparent 48%, currentColor 49% 51%, transparent 52%),
+      linear-gradient(-25deg, transparent 48%, currentColor 49% 51%, transparent 52%);
+    opacity: .38;
+  }
+  .why-visual-network::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+    background: var(--color-ink);
+    box-shadow: -120px -28px 0 -4px currentColor, -86px 22px 0 -4px currentColor, 86px -22px 0 -4px currentColor, 120px 28px 0 -4px currentColor;
+  }
+  .why-visual-orbit::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 6px;
+    width: 118px;
+    height: 118px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    box-shadow: 0 0 0 18px transparent, 0 0 0 20px currentColor, 0 0 0 42px transparent, 0 0 0 44px currentColor;
+    opacity: .24;
+  }
+  .why-visual-orbit::after {
+    content: "";
+    position: absolute;
+    left: 72px;
+    top: 58px;
+    width: 18px;
+    height: 18px;
+    background: currentColor;
+    border-radius: 50%;
+    box-shadow: -54px 22px 0 -5px currentColor, 86px -28px 0 -5px currentColor;
+  }
+  .why-visual-globe.is-static::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 22px;
+    width: 260px;
+    height: 112px;
+    transform: translateX(-50%);
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    background:
+      repeating-linear-gradient(90deg, transparent 0 44px, currentColor 45px 46px, transparent 47px 88px),
+      repeating-linear-gradient(0deg, transparent 0 28px, currentColor 29px 30px, transparent 31px 56px);
+    opacity: .22;
+  }
+  .why-visual-globe.is-static::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 76px;
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    box-shadow: -80px -18px 0 currentColor, -38px 34px 0 currentColor, 58px -8px 0 currentColor, 94px 28px 0 currentColor;
+  }
+  .why-card.media .why-visual-globe.is-static::before {
+    left: 50%;
+    top: 50%;
+    width: 520px;
+    height: 520px;
+    transform: translate(-50%, -50%);
+    border-color: rgba(255,255,255,.9);
+    border-radius: 50%;
+    background:
+      linear-gradient(90deg, transparent 48%, rgba(255,255,255,.66) 49% 51%, transparent 52%),
+      linear-gradient(0deg, transparent 48%, rgba(255,255,255,.56) 49% 51%, transparent 52%),
+      repeating-radial-gradient(circle, transparent 0 44px, rgba(255,255,255,.34) 45px 47px, transparent 48px 88px);
+    box-shadow: 0 24px 70px rgba(25,25,25,.16), 0 0 80px rgba(255,255,255,.75);
+    opacity: .88;
+  }
+  .why-card.media .why-visual-globe.is-static::after {
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,.96);
+    box-shadow:
+      -118px -54px 0 rgba(255,255,255,.92),
+      98px -78px 0 rgba(255,255,255,.92),
+      -58px 92px 0 rgba(255,255,255,.92),
+      144px 38px 0 rgba(255,255,255,.92);
+  }
+
+  /* ============================================================
+     PROGRAMS
+     ============================================================ */
+  .programs { padding: 96px 0 104px; background: var(--color-paper); border-top: 2px solid var(--color-ink); }
+  .programs-head { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 40px; margin-bottom: 56px; align-items: end; }
+  .programs-num { font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); border-top: 2px solid var(--color-ink); padding-top: 12px; }
+  .programs-title { font-family: var(--font-display); font-size: 64px; line-height: 0.96; text-transform: uppercase; letter-spacing: 0; max-width: 15ch; margin: 0; }
+  .programs-lead { font-family: var(--font-sans); font-size: 17px; line-height: 1.5; max-width: 40ch; align-self: end; padding-bottom: 8px; }
+  .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .program-card {
+    background: var(--color-paper);
+    border: 2px solid var(--color-ink);
+    box-shadow: 8px 8px 0 var(--color-ink);
+    padding: 0;
+    display: flex; flex-direction: column; gap: 0;
+    transition: all 100ms linear;
+    min-height: 448px;
+    position: relative;
+    overflow: hidden;
+  }
+  .program-card:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 var(--color-ink); }
+  .program-card.featured { background: var(--color-yellow); }
+  .program-card.dark { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); box-shadow: 8px 8px 0 var(--color-yellow); }
+  .program-card.dark:hover { box-shadow: 12px 12px 0 var(--color-yellow); }
+  .program-tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; display: block; align-self: stretch; border-bottom: 2px solid currentColor; padding: 10px 16px; background: var(--color-paper-deep); }
+  .program-card.featured .program-tag { background: var(--color-ink); color: var(--color-yellow); }
+  .program-card.dark .program-tag { background: var(--color-yellow); color: var(--color-ink); }
+  .program-name { font-family: var(--font-display); font-size: 40px; line-height: 0.96; text-transform: uppercase; letter-spacing: 0; padding: 26px 24px 16px; }
+  .program-desc { font-family: var(--font-sans); font-size: 16px; line-height: 1.5; padding: 0 24px 22px; }
+  .program-card.dark .program-desc { color: var(--color-on-ink); }
+  .program-bullets { list-style: none; display: flex; flex-direction: column; gap: 10px; border-top: 2px solid currentColor; margin: 0 24px 24px; padding: 18px 0 0; }
+  .program-bullets li { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: var(--track-loose); display: flex; align-items: center; gap: 12px; }
+  .program-bullets li::before { content: ""; width: 10px; height: 10px; background: currentColor; flex-shrink: 0; }
+  .program-cta { margin: auto 24px 24px; display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; font-family: var(--font-sans); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-loose); padding: 14px 0 0; border-top: 2px solid currentColor; color: inherit; transition: padding 100ms linear; }
+  .program-cta::after { content: "→"; font-size: 18px; transition: transform 100ms linear; }
+  .program-card:hover .program-cta::after { transform: translateX(4px); }
+
+  .program-card::after {
+    content: "420 OPS / BLACK";
+    position: absolute;
+    top: 72px;
+    right: 18px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: var(--track-loose);
+    text-transform: uppercase;
+    color: var(--color-mute);
+  }
+  .program-card.featured::after { color: var(--color-ink); }
+  .program-card.dark::after { color: var(--color-yellow); }
+
+  /* ============================================================
+     SOCIAL PROOF
+     ============================================================ */
+  .proof { padding: 96px 0 64px; background: var(--color-paper-warm); border-top: 2px solid var(--color-ink); overflow: hidden; }
+  .proof-head { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 40px; margin-bottom: 56px; align-items: end; }
+  .proof-num { font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); border-top: 2px solid var(--color-ink); padding-top: 12px; }
+  .proof-title { font-family: var(--font-display); font-size: 56px; line-height: 0.98; text-transform: uppercase; letter-spacing: 0; max-width: 15ch; margin: 0; }
+  .proof-lead { font-family: var(--font-sans); font-size: 17px; line-height: 1.55; max-width: 38ch; align-self: end; padding-bottom: 8px; }
+
+  .video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 64px; }
+  .video-card { aspect-ratio: 3/4; background: var(--color-ink); color: var(--color-paper); border: 2px solid var(--color-ink); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; transition: all 100ms linear; cursor: pointer; }
+  .video-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--color-yellow); }
+  .video-card::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.6) 100%);
+    z-index: 0;
+  }
+  .video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 50%; background: var(--color-yellow); display: grid; place-items: center; z-index: 1; transition: all 100ms linear; }
+  .video-play::after { content: "▶"; color: var(--color-ink); font-size: 22px; margin-left: 4px; }
+  .video-card:hover .video-play { transform: translate(-50%, -50%) scale(1.1); }
+  .video-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-yellow); position: relative; z-index: 1; }
+  .video-name { font-family: var(--font-display); font-size: 22px; line-height: 0.96; text-transform: uppercase; margin-top: 6px; position: relative; z-index: 1; }
+
+  .testimonial-marquee-label { text-align: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); margin-bottom: 24px; }
+  .testimonial-marquee { position: relative; overflow: hidden; margin-bottom: 64px; mask-image: linear-gradient(90deg, transparent 0, black 80px, black calc(100% - 80px), transparent 100%); }
+  .testimonial-track { display: flex; gap: 16px; animation: marquee 50s linear infinite; width: max-content; }
+  .testimonial-cell { width: 180px; height: 180px; background: var(--color-paper-deep); border: 2px solid var(--color-ink); flex-shrink: 0; position: relative; display: grid; place-items: center; transition: transform 100ms linear; }
+  .testimonial-cell::after { content: "FOTO"; font-family: var(--font-mono); font-size: 10px; color: var(--color-mute); letter-spacing: var(--track-loose); }
+  .testimonial-cell:nth-child(3n) { background: var(--color-yellow); }
+  .testimonial-cell:nth-child(5n) { background: var(--color-ink); }
+  .testimonial-cell:nth-child(5n)::after { color: var(--color-yellow); }
+  .testimonial-cell:hover { transform: translateY(-4px); }
+
+  .proof-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; border-top: 2px solid var(--color-ink); padding-top: 48px; }
+  .proof-metric-num { font-family: var(--font-display); font-size: 56px; line-height: 0.9; letter-spacing: 0; }
+  .proof-metric-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: var(--track-loose); color: var(--color-mute); margin-top: 8px; }
+
+  /* ============================================================
+     HUBS SECTION
+     ============================================================ */
+  .hubs { padding: 96px 0; background: var(--color-paper); border-top: 2px solid var(--color-ink); }
+  .hubs-head { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 40px; margin-bottom: 48px; align-items: end; }
+  .hubs-num { font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); border-top: 2px solid var(--color-ink); padding-top: 12px; }
+  .hubs-title { font-family: var(--font-display); font-size: 62px; line-height: 0.98; text-transform: uppercase; letter-spacing: 0; max-width: 14ch; }
+  .hubs-lead { font-family: var(--font-sans); font-size: 17px; line-height: 1.55; max-width: 38ch; align-self: end; padding-bottom: 8px; }
+
+  .hubs-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; border-top: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); padding: 48px 0; margin-bottom: 56px; }
+  .hubs-stat-num { font-family: var(--font-display); font-size: 56px; line-height: 0.9; color: var(--color-ink); letter-spacing: 0; }
+  .hubs-stat-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: var(--track-loose); color: var(--color-mute); margin-top: 10px; }
+
+  .cities-marquee { background: var(--color-ink); color: var(--color-yellow); padding: 24px 0; margin-bottom: 64px; border-top: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); overflow: hidden; }
+  .cities-track { display: flex; gap: 64px; animation: marquee 30s linear infinite; width: max-content; }
+  .cities-track span { font-family: var(--font-display); font-size: 36px; line-height: 1; text-transform: uppercase; letter-spacing: 0.015em; display: inline-flex; align-items: center; gap: 64px; flex-shrink: 0; }
+  .cities-track span::after {
+    content: "";
+    display: inline-block;
+    width: 48px;
+    height: 22px;
+    background-color: var(--color-paper);
+    -webkit-mask-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22400%22%20height%3D%22184%22%20viewBox%3D%220%200%20400%20184%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M393.3%2057.2C388.7%2045.8%20381.9%2035.6%20373.2%2026.9C364.4%2018.2%20354.2%2011.4%20342.9%206.8C331.8%202.3%20320.2%200%20308.3%200C296.4%200%20284.8%202.3%20273.8%206.7C262.4%2011.3%20252.2%2018.1%20243.5%2026.8L200%2070.3L156.5%2026.8C147.7%2018.1%20137.5%2011.3%20126.2%206.7C115.2%202.3%20103.6%200%2091.7%200C79.8%200%2068.2%202.3%2057.2%206.7C45.8%2011.3%2035.6%2018.1%2026.9%2026.8C18.2%2035.6%2011.4%2045.8%206.8%2057.1C2.3%2068.2%200%2079.8%200%2091.7C0%20103.6%202.3%20115.2%206.7%20126.2C11.3%20137.6%2018.1%20147.8%2026.8%20156.5C35.5%20165.2%2045.8%20172%2057.1%20176.6C68.1%20181.1%2079.7%20183.3%2091.6%20183.3C103.5%20183.3%20115.1%20181%20126.1%20176.6C137.5%20172%20147.7%20165.2%20156.4%20156.5L199.9%20113L210.4%20123.5L243.4%20156.5C252.2%20165.2%20262.4%20172%20273.7%20176.6C284.7%20181.1%20296.3%20183.3%20308.2%20183.3C320.1%20183.3%20331.7%20181%20342.7%20176.6C354.1%20172%20364.3%20165.2%20373%20156.5C381.7%20147.7%20388.5%20137.5%20393.1%20126.2C397.6%20115.2%20399.8%20103.6%20399.8%2091.7C399.8%2079.8%20397.5%2068.2%20393.1%2057.2H393.3ZM369.7%2091.7C369.7%20108.1%20363.3%20123.6%20351.7%20135.2C340.1%20146.8%20324.7%20153.2%20308.2%20153.2C291.7%20153.2%20276.3%20146.8%20264.7%20135.2L221.2%2091.7L264.7%2048.2C276.3%2036.6%20291.7%2030.2%20308.2%2030.2C324.7%2030.2%20340.1%2036.6%20351.7%2048.2C363.3%2059.8%20369.7%2075.2%20369.7%2091.7ZM178.6%2091.7L135.1%20135.2C123.5%20146.8%20108.1%20153.2%2091.6%20153.2C75.2%20153.2%2059.7%20146.8%2048.1%20135.2C36.5%20123.6%2030.1%20108.2%2030.1%2091.7C30.1%2075.2%2036.5%2059.8%2048.1%2048.2C59.7%2036.6%2075.1%2030.2%2091.6%2030.2C108%2030.2%20123.5%2036.6%20135.1%2048.2L178.5%2091.6V91.7H178.6Z%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E');
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22400%22%20height%3D%22184%22%20viewBox%3D%220%200%20400%20184%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M393.3%2057.2C388.7%2045.8%20381.9%2035.6%20373.2%2026.9C364.4%2018.2%20354.2%2011.4%20342.9%206.8C331.8%202.3%20320.2%200%20308.3%200C296.4%200%20284.8%202.3%20273.8%206.7C262.4%2011.3%20252.2%2018.1%20243.5%2026.8L200%2070.3L156.5%2026.8C147.7%2018.1%20137.5%2011.3%20126.2%206.7C115.2%202.3%20103.6%200%2091.7%200C79.8%200%2068.2%202.3%2057.2%206.7C45.8%2011.3%2035.6%2018.1%2026.9%2026.8C18.2%2035.6%2011.4%2045.8%206.8%2057.1C2.3%2068.2%200%2079.8%200%2091.7C0%20103.6%202.3%20115.2%206.7%20126.2C11.3%20137.6%2018.1%20147.8%2026.8%20156.5C35.5%20165.2%2045.8%20172%2057.1%20176.6C68.1%20181.1%2079.7%20183.3%2091.6%20183.3C103.5%20183.3%20115.1%20181%20126.1%20176.6C137.5%20172%20147.7%20165.2%20156.4%20156.5L199.9%20113L210.4%20123.5L243.4%20156.5C252.2%20165.2%20262.4%20172%20273.7%20176.6C284.7%20181.1%20296.3%20183.3%20308.2%20183.3C320.1%20183.3%20331.7%20181%20342.7%20176.6C354.1%20172%20364.3%20165.2%20373%20156.5C381.7%20147.7%20388.5%20137.5%20393.1%20126.2C397.6%20115.2%20399.8%20103.6%20399.8%2091.7C399.8%2079.8%20397.5%2068.2%20393.1%2057.2H393.3ZM369.7%2091.7C369.7%20108.1%20363.3%20123.6%20351.7%20135.2C340.1%20146.8%20324.7%20153.2%20308.2%20153.2C291.7%20153.2%20276.3%20146.8%20264.7%20135.2L221.2%2091.7L264.7%2048.2C276.3%2036.6%20291.7%2030.2%20308.2%2030.2C324.7%2030.2%20340.1%2036.6%20351.7%2048.2C363.3%2059.8%20369.7%2075.2%20369.7%2091.7ZM178.6%2091.7L135.1%20135.2C123.5%20146.8%20108.1%20153.2%2091.6%20153.2C75.2%20153.2%2059.7%20146.8%2048.1%20135.2C36.5%20123.6%2030.1%20108.2%2030.1%2091.7C30.1%2075.2%2036.5%2059.8%2048.1%2048.2C59.7%2036.6%2075.1%2030.2%2091.6%2030.2C108%2030.2%20123.5%2036.6%20135.1%2048.2L178.5%2091.6V91.7H178.6Z%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+  .inf {
+    display: inline-block;
+    width: 1.3em;
+    height: 0.6em;
+    background-color: currentColor;
+    -webkit-mask-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22400%22%20height%3D%22184%22%20viewBox%3D%220%200%20400%20184%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M393.3%2057.2C388.7%2045.8%20381.9%2035.6%20373.2%2026.9C364.4%2018.2%20354.2%2011.4%20342.9%206.8C331.8%202.3%20320.2%200%20308.3%200C296.4%200%20284.8%202.3%20273.8%206.7C262.4%2011.3%20252.2%2018.1%20243.5%2026.8L200%2070.3L156.5%2026.8C147.7%2018.1%20137.5%2011.3%20126.2%206.7C115.2%202.3%20103.6%200%2091.7%200C79.8%200%2068.2%202.3%2057.2%206.7C45.8%2011.3%2035.6%2018.1%2026.9%2026.8C18.2%2035.6%2011.4%2045.8%206.8%2057.1C2.3%2068.2%200%2079.8%200%2091.7C0%20103.6%202.3%20115.2%206.7%20126.2C11.3%20137.6%2018.1%20147.8%2026.8%20156.5C35.5%20165.2%2045.8%20172%2057.1%20176.6C68.1%20181.1%2079.7%20183.3%2091.6%20183.3C103.5%20183.3%20115.1%20181%20126.1%20176.6C137.5%20172%20147.7%20165.2%20156.4%20156.5L199.9%20113L210.4%20123.5L243.4%20156.5C252.2%20165.2%20262.4%20172%20273.7%20176.6C284.7%20181.1%20296.3%20183.3%20308.2%20183.3C320.1%20183.3%20331.7%20181%20342.7%20176.6C354.1%20172%20364.3%20165.2%20373%20156.5C381.7%20147.7%20388.5%20137.5%20393.1%20126.2C397.6%20115.2%20399.8%20103.6%20399.8%2091.7C399.8%2079.8%20397.5%2068.2%20393.1%2057.2H393.3ZM369.7%2091.7C369.7%20108.1%20363.3%20123.6%20351.7%20135.2C340.1%20146.8%20324.7%20153.2%20308.2%20153.2C291.7%20153.2%20276.3%20146.8%20264.7%20135.2L221.2%2091.7L264.7%2048.2C276.3%2036.6%20291.7%2030.2%20308.2%2030.2C324.7%2030.2%20340.1%2036.6%20351.7%2048.2C363.3%2059.8%20369.7%2075.2%20369.7%2091.7ZM178.6%2091.7L135.1%20135.2C123.5%20146.8%20108.1%20153.2%2091.6%20153.2C75.2%20153.2%2059.7%20146.8%2048.1%20135.2C36.5%20123.6%2030.1%20108.2%2030.1%2091.7C30.1%2075.2%2036.5%2059.8%2048.1%2048.2C59.7%2036.6%2075.1%2030.2%2091.6%2030.2C108%2030.2%20123.5%2036.6%20135.1%2048.2L178.5%2091.6V91.7H178.6Z%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .hubs-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+  .hubs-pillars-title { font-family: var(--font-display); font-size: 40px; line-height: 1; text-transform: uppercase; letter-spacing: 0; max-width: 16ch; margin: 0 0 24px; }
+  .hubs-pillars-body { font-family: var(--font-sans); font-size: 16px; line-height: 1.55; max-width: 50ch; margin-bottom: 32px; }
+  .pillars-grid { display: flex; flex-direction: column; gap: 16px; }
+  .pillar { border: 2px solid var(--color-ink); padding: 24px; background: var(--color-paper); display: grid; grid-template-columns: 56px 1fr; gap: 20px; align-items: start; transition: all 100ms linear; }
+  .pillar:hover { background: var(--color-yellow); }
+  .pillar-num { font-family: var(--font-display); font-size: 32px; line-height: 0.9; }
+  .pillar-content h4 { font-family: var(--font-display); font-size: 22px; line-height: 1; text-transform: uppercase; margin-bottom: 8px; }
+  .pillar-content p { font-family: var(--font-sans); font-size: 14px; line-height: 1.55; margin: 0; }
+  .hubs-cta-row { display: flex; gap: 16px; margin-top: 32px; }
+
+  /* ============================================================
+     IMERSAO
+     ============================================================ */
+  .imersao { background: var(--color-ink); color: var(--color-paper); padding: 96px 0; border-top: 2px solid var(--color-ink); }
+  .imersao-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; }
+  .imersao-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-yellow); margin-bottom: 24px; }
+  .imersao-eyebrow::before { content: ""; width: 32px; height: 3px; background: var(--color-yellow); }
+  .imersao-title { font-family: var(--font-display); font-size: 68px; line-height: 0.96; text-transform: uppercase; letter-spacing: 0; margin: 0 0 28px; }
+  .imersao-body { font-family: var(--font-sans); font-size: 19px; line-height: 1.5; color: var(--color-on-ink); margin-bottom: 32px; max-width: 48ch; }
+  .imersao-meta-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+  .imersao-badge { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--color-paper); color: var(--color-paper); }
+  .imersao-poster { aspect-ratio: 4/5; background: var(--color-yellow); border: 2px solid var(--color-paper); position: relative; display: flex; flex-direction: column; justify-content: space-between; padding: 40px; color: var(--color-ink); }
+  .imersao-poster-tag { position: absolute; top: 24px; right: 24px; font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); color: var(--color-ink); }
+  .imersao-poster-num { font-family: var(--font-display); font-size: 220px; line-height: 0.85; letter-spacing: 0; }
+  .imersao-poster-foot { font-family: var(--font-display); font-size: 24px; line-height: 1; text-transform: uppercase; letter-spacing: 0; }
+  .imersao-poster-meta { position: absolute; bottom: 24px; right: 24px; font-family: var(--font-mono); font-size: 10px; letter-spacing: var(--track-loose); color: var(--color-ink); text-align: right; }
+
+  /* ============================================================
+     OPEN HUB
+     ============================================================ */
+  .open-hub { background: var(--color-yellow); border-top: 2px solid var(--color-ink); padding: 96px 0; }
+  .open-hub-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+  .open-hub-eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-ink); margin-bottom: 16px; }
+  .open-hub-title { font-family: var(--font-display); font-size: 64px; line-height: 0.96; text-transform: uppercase; letter-spacing: 0; margin: 0; }
+  .open-hub-body { font-family: var(--font-sans); font-size: 17px; line-height: 1.5; max-width: 56ch; margin-top: 20px; }
+
+  /* ============================================================
+     FOUNDER
+     ============================================================ */
+  .founder { padding: 96px 0; border-top: 2px solid var(--color-ink); background: var(--color-paper-warm); }
+  .founder-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+  .founder-photo { aspect-ratio: 3/4; background: var(--color-ink); border: 2px solid var(--color-ink); box-shadow: 12px 12px 0 var(--color-yellow); background-image: url("assets/photography/alan-portrait-laptop-yellow-glasses.jpg"); background-size: cover; background-position: center; }
+  .founder-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-ink); padding-bottom: 12px; }
+  .founder-name { font-family: var(--font-display); font-size: 84px; line-height: 0.94; text-transform: uppercase; letter-spacing: 0; margin: 0 0 16px; }
+  .founder-tag { font-family: var(--font-display); font-size: 28px; line-height: 1.05; text-transform: uppercase; letter-spacing: 0; margin-bottom: 32px; max-width: 22ch; }
+  .founder-roles { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+  .founder-role { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--color-ink); background: var(--color-paper); }
+  .founder-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px; padding: 24px 0; border-top: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); }
+  .founder-metric-num { font-family: var(--font-display); font-size: 56px; line-height: 0.9; letter-spacing: 0; }
+  .founder-metric-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); margin-top: 8px; }
+  .founder-body { font-family: var(--font-sans); font-size: 17px; line-height: 1.55; max-width: 56ch; margin-bottom: 16px; }
+  .founder-media { margin-top: 32px; border-top: 2px solid var(--color-ink); padding-top: 20px; }
+  .founder-media-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-mute); margin-bottom: 16px; }
+  .founder-media-row { display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
+  .founder-media-row span { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.02em; color: var(--color-ink); }
+
+  /* ============================================================
+     NEWSLETTER — Fundo image
+     ============================================================ */
+  .newsletter {
+    padding: 96px 0;
+    border-top: 2px solid var(--color-ink);
+    background-color: var(--color-ink);
+    background-image: linear-gradient(rgba(25,25,25,0.78), rgba(25,25,25,0.92)), url("imagens/Fundo-newsletter.png");
+    background-size: cover;
+    background-position: center;
+    color: var(--color-paper);
+    position: relative;
+  }
+  .nl-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; }
+  .nl-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-yellow); margin-bottom: 24px; }
+  .nl-eyebrow::before { content: ""; width: 32px; height: 3px; background: var(--color-yellow); }
+  .nl-title { font-family: var(--font-display); font-size: 68px; line-height: 0.96; text-transform: uppercase; letter-spacing: 0; margin: 0; }
+  .nl-body { font-family: var(--font-sans); font-size: 19px; line-height: 1.55; color: var(--color-on-ink); margin-bottom: 32px; }
+  .nl-form { display: flex; gap: 0; border: 2px solid var(--color-paper); box-shadow: 8px 8px 0 var(--color-yellow); background: var(--color-paper); }
+  .nl-form input { flex: 1; padding: 18px 22px; font-family: var(--font-sans); font-size: 15px; background: transparent; border: 0; color: var(--color-ink); outline: 0; }
+  .nl-form input::placeholder { color: var(--color-mute); }
+  .nl-form button { background: var(--color-ink); color: var(--color-paper); border: 0; padding: 18px 28px; font-family: var(--font-sans); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: var(--track-loose); cursor: pointer; transition: all 100ms linear; }
+  .nl-form button:hover { background: var(--color-yellow); color: var(--color-ink); }
+  .nl-disclaimer { margin-top: 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: var(--track-loose); text-transform: uppercase; color: var(--color-on-ink-soft); }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  /* =========================================================================
+     FOOTER MINIMAL (BRUTALISM)
+  ========================================================================= */
+  .footer { background: var(--color-paper); color: var(--color-ink); padding: 0 0 48px; border-top: 2px solid var(--color-ink); border-bottom: 2px solid var(--color-ink); position: relative; overflow: hidden; }
+  .footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(35% 80% at 30% 0%, rgba(26,26,46,0.06), transparent); pointer-events: none; z-index: 0; }
+  .footer-divider { width: 100%; height: 2px; background: var(--color-ink); }
+  .footer-grid { display: grid; grid-template-columns: 4fr 1fr 1fr; gap: 24px; padding: 48px 0; position: relative; z-index: 1; }
+  
+  .footer-brand-col { display: flex; flex-direction: column; gap: 24px; }
+  .footer-brand-col svg { width: 32px; height: 32px; stroke: var(--color-ink); transition: transform 200ms ease; }
+  .footer-brand-col svg:hover { transform: scale(1.1); }
+  .footer-brand-col p { font-family: var(--font-mono); font-size: 14px; max-width: 30ch; color: var(--color-mute); line-height: 1.5; margin: 0; }
+  
+  .social-links { display: flex; gap: 8px; }
+  .social-link { width: 36px; height: 36px; border: 2px solid var(--color-ink); display: flex; align-items: center; justify-content: center; transition: all 100ms linear; background: var(--color-paper); color: var(--color-ink); border-radius: 4px; }
+  .social-link:hover { background: var(--color-yellow); transform: translate(-2px, -2px); box-shadow: 2px 2px 0 var(--color-ink); }
+  .social-link svg { width: 16px; height: 16px; stroke: currentColor; fill: none; }
+  
+  .footer-col { display: flex; flex-direction: column; gap: 8px; }
+  .footer-col span { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; color: var(--color-mute); margin-bottom: 4px; letter-spacing: var(--track-loose); }
+  .footer-col .links { display: flex; flex-direction: column; gap: 6px; }
+  .footer-col .links a { font-family: var(--font-sans); font-size: 14px; font-weight: 500; color: var(--color-ink); text-decoration: none; display: inline-block; width: max-content; transition: color 100ms linear; }
+  .footer-col .links a:hover { color: var(--color-yellow); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 24px 0 0; font-family: var(--font-sans); font-size: 13px; color: var(--color-mute); }
+  .footer-bottom p { margin: 0; font-weight: 400; }
+  .footer-bottom a { color: var(--color-ink); font-weight: 600; text-decoration: none; }
+  .footer-bottom a:hover { color: var(--color-yellow); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 2px; }
+  
+  .footer-sign-off { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); color: var(--color-ink); font-weight: 600; text-transform: uppercase; font-size: 12px; }
+  .footer-sign-off .inf { width: 2.2em; height: 1em; vertical-align: middle; background-color: currentColor; display: inline-block; -webkit-mask-image: url('data:image/svg+xml;utf8,%3Csvg%20width%3D%22400%22%20height%3D%22184%22%20viewBox%3D%220%200%20400%20184%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M393.3%2057.2C388.7%2045.8%20381.9%2035.6%20373.2%2026.9C364.4%2018.2%20354.2%2011.4%20342.9%206.8C331.8%202.3%20320.2%200%20308.3%200C296.4%200%20284.8%202.3%20273.8%206.7C262.4%2011.3%20252.2%2018.1%20243.5%2026.8L200%2070.3L156.5%2026.8C147.7%2018.1%20137.5%2011.3%20126.2%206.7C115.2%202.3%20103.6%200%2091.7%200C79.8%200%2068.2%202.3%2057.2%206.7C45.8%2011.3%2035.6%2018.1%2026.9%2026.8C18.2%2035.6%2011.4%2045.8%206.8%2057.1C2.3%2068.2%200%2079.8%200%2091.7C0%20103.6%202.3%20115.2%206.7%20126.2C11.3%20137.6%2018.1%20147.8%2026.8%20156.5C35.5%20165.2%2045.8%20172%2057.1%20176.6C68.1%20181.1%2079.7%20183.3%2091.6%20183.3C103.5%20183.3%20115.1%20181%20126.1%20176.6C137.5%20172%20147.7%20165.2%20156.4%20156.5L199.9%20113L210.4%20123.5L243.4%20156.5C252.2%20165.2%20262.4%20172%20273.7%20176.6C284.7%20181.1%20296.3%20183.3%20308.2%20183.3C320.1%20183.3%20331.7%20181%20342.7%20176.6C354.1%20172%20364.3%20165.2%20373%20156.5C381.7%20147.7%20388.5%20137.5%20393.1%20126.2C397.6%20115.2%20399.8%20103.6%20399.8%2091.7C399.8%2079.8%20397.5%2068.2%20393.1%2057.2H393.3ZM369.7%2091.7C369.7%20108.1%20363.3%20123.6%20351.7%20135.2C340.1%20146.8%20324.7%20153.2%20308.2%20153.2C291.7%20153.2%20276.3%20146.8%20264.7%20135.2L221.2%2091.7L264.7%2048.2C276.3%2036.6%20291.7%2030.2%20308.2%2030.2C324.7%2030.2%20340.1%2036.6%20351.7%2048.2C363.3%2059.8%20369.7%2075.2%20369.7%2091.7ZM178.6%2091.7L135.1%20135.2C123.5%20146.8%20108.1%20153.2%2091.6%20153.2C75.2%20153.2%2059.7%20146.8%2048.1%20135.2C36.5%20123.6%2030.1%20108.2%2030.1%2091.7C30.1%2075.2%2036.5%2059.8%2048.1%2048.2C59.7%2036.6%2075.1%2030.2%2091.6%2030.2C108%2030.2%20123.5%2036.6%20135.1%2048.2L178.5%2091.6V91.7H178.6Z%22%20fill%3D%22black%22%2F%3E%3C%2Fsvg%3E'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; padding: 32px 0; }
+    .footer-brand-col { grid-column: span 2; }
+    .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="nav-logo" aria-label="Academia Lendária">
+      <img src="imagens/LogoAcademiaLendaria.svg" alt="Academia Lendár[IA]"/>
+    </a>
+    <nav class="nav-links">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#programas">Programas</a>
+      <a href="#provas">Provas</a>
+      <a href="#hubs">Hubs</a>
+      <a href="#eventos">Eventos</a>
+      <a href="#founder">Founder</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#entrar" class="btn">Entrar</a>
+      <a href="#newsletter" class="btn btn-primary">Newsletter</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div>
+          <div class="hero-utility">
+            <div class="hero-eyebrow"><span class="brk">COHORT ABERTO · PRIMAVERA 2026</span></div>
+            <div class="hero-ticket">
+              Drop 01<br/>
+              IA aplicada<br/>
+              vagas limitadas
+            </div>
+          </div>
+          <h1 class="hero-title">
+            Construa <span class="hl">futuros</span> com IA aplicada.
+          </h1>
+          <p class="hero-sub">
+            Um ecossistema para transformar agentes, automações e playbooks em operação real, com comunidade, método e execução.
+          </p>
+          <div class="hero-actions">
+            <a href="#programas" class="btn btn-dark btn-lg btn-block">Ver programas →</a>
+            <a href="#newsletter" class="btn btn-lg">Receber updates</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <figure class="hero-shot">
+          <img src="assets/photography/alan-portrait-laptop-yellow-glasses.jpg" alt="Alan Nicolas usando óculos amarelos em uma estação de trabalho."/>
+          <figcaption class="hero-photo-caption">
+            <span>Alan Nicolas · founder</span>
+            <span>AI ops lab</span>
+          </figcaption>
+        </figure>
+        <div class="hero-system" aria-label="Resumo do sistema Lendária">
+          <div class="hero-system-head">
+            <span>Academia Lendár[IA]</span>
+            <span>system board</span>
+          </div>
+          <div class="hero-system-body">
+            <div class="hero-system-cell">
+              <strong>15K+</strong>
+              <span>profissionais no ecossistema</span>
+            </div>
+            <div class="hero-system-cell">
+              <strong>40+</strong>
+              <span>países com operadores</span>
+            </div>
+            <div class="hero-system-cell">
+              <strong>50+</strong>
+              <span>hubs e encontros</span>
+            </div>
+            <div class="hero-system-cell">
+              <strong>R$200M+</strong>
+              <span>faturamento coletivo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMPANIES MARQUEE ===================== -->
+<section class="companies">
+  <div class="wrap">
+    <div class="companies-eyebrow">Líderes dessas empresas já caminham conosco</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-item"><img src="imagens/Globo.svg" alt="Globo"/></div>
+      <div class="marquee-item"><img src="imagens/RedBull.svg" alt="Red Bull"/></div>
+      <div class="marquee-item"><img src="imagens/BTG.svg" alt="BTG Pactual"/></div>
+      <div class="marquee-item"><img src="imagens/Amazon.svg" alt="Amazon"/></div>
+      <div class="marquee-item"><img src="imagens/Meta.svg" alt="Meta"/></div>
+      <div class="marquee-item"><img src="imagens/Caixa.svg" alt="Caixa"/></div>
+      <div class="marquee-item"><img src="imagens/BB.svg" alt="Banco do Brasil"/></div>
+      <div class="marquee-item"><img src="imagens/allfluence.svg" alt="Allfluence"/></div>
+      <!-- duplicated for seamless loop -->
+      <div class="marquee-item"><img src="imagens/Globo.svg" alt=""/></div>
+      <div class="marquee-item"><img src="imagens/RedBull.svg" alt=""/></div>
+      <div class="marquee-item"><img src="imagens/BTG.svg" alt=""/></div>
+      <div class="marquee-item"><img src="imagens/Amazon.svg" alt=""/></div>
+      <div class="marquee-item"><img src="imagens/Meta.svg" alt=""/></div>
+      <div class="marquee-item"><img src="imagens/Caixa.svg" alt=""/></div>
+      <div class="marquee-item"><img src="imagens/BB.svg" alt=""/></div>
+      <div class="marquee-item"><img src="imagens/allfluence.svg" alt=""/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MANIFESTO QUOTE ===================== -->
+<section class="manifesto-quote" id="manifesto">
+  <div class="wrap mq-grid">
+    <div class="mq-mark">«</div>
+    <div>
+      <p class="mq-text">
+        Tem gente economizando <em>R$1.6 milhão por ano</em> com nove agentes de IA. Tem gente que ainda acha que IA é só ChatGPT. Em qual lado você quer estar? O movimento já começou — a única pergunta é se você vai construir o futuro ou assistir alguém construir no seu lugar.
+      </p>
+      <div class="mq-author">Alan Nicolas · <span class="brk">FOUNDER</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY EXISTS — 4 NUMBERED CARDS ===================== -->
+<section class="why">
+  <div class="wrap">
+    <div class="why-head">
+      <div class="why-num-label"><span class="brk">POR QUE EXISTIMOS</span></div>
+      <h2 class="why-title">
+        Nós não ensinamos IA. <span class="hl">Construímos</span> com você.
+      </h2>
+      <p class="why-intro">
+        Aqui ninguém assiste aula e vai embora. Aqui você constrói, testa, publica e escala — com 15 mil pessoas fazendo o mesmo, ao mesmo tempo.
+      </p>
+    </div>
+    <div class="why-grid">
+
+      <article class="why-card featured wide">
+        <div class="why-card-num">01 · A REDE INVISÍVEL</div>
+        <div class="why-visual-network" aria-hidden="true"></div>
+        <h3 class="why-card-title">Quem já opera com IA está aqui.</h3>
+        <p class="why-card-body">
+          Empresários que automatizaram o que a maioria ainda faz na mão. Trocam playbooks em tempo real e compartilham o que quebrou às 3 da manhã.
+        </p>
+      </article>
+
+      <article class="why-card">
+        <div class="why-card-num">02 · NOSSA MISSÃO</div>
+        <h3 class="why-card-title">Nossa missão.</h3>
+        <p class="why-card-body">
+          Unir visionários que usam IA como ferramenta de transformação — não como brinquedo. Um ecossistema que prova: quando as pessoas certas se encontram, o impossível vira rotina.
+        </p>
+        <div class="why-card-stats">
+          <div class="why-card-stat"><span>Faturamento coletivo</span><strong>R$200M+</strong></div>
+          <div class="why-card-stat"><span>Profissionais ativos</span><strong>15K+</strong></div>
+          <div class="why-card-stat"><span>Países conectados</span><strong>40+</strong></div>
+        </div>
+      </article>
+
+      <article class="why-card dark">
+        <div class="why-card-num">03 · POR QUE EXISTIMOS</div>
+        <div class="why-icon" aria-hidden="true">+</div>
+        <h3 class="why-card-title">O mundo não precisa de mais um curso.</h3>
+        <p class="why-card-body">
+          Precisa de um lugar onde pessoas extraordinárias se encontram, compartilham o que funciona e constroem juntas o que ninguém conseguiria sozinho.
+        </p>
+      </article>
+
+      <article class="why-card media">
+        <div class="why-card-num">04 · MAIOR QUE QUALQUER UM</div>
+        <div class="why-visual-globe is-static">
+          <div class="globe-shell" data-globe>
+            <canvas aria-label="Mapa interativo dos hubs regionais da Academia Lendaria"></canvas>
+                <button class="globe-marker" type="button" data-marker="alegrete">Alegrete<span>8 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="anapolis">Anápolis<span>14 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="araxa">Araxá<span>8 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="baixada-santista">Baixada Santista<span>24 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="balneario-camboriu">Balneário Camboriú<span>45 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="bauru">Bauru<span>18 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="belo-horizonte">Belo Horizonte<span>67 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="belem">Belém<span>19 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="bento-goncalves">Bento Gonçalves<span>16 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="blumenau">Blumenau<span>26 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="boa-vista">Boa Vista<span>11 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="boituva">Boituva<span>7 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="brasilia">Brasília<span>59 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="cabo-frio">Cabo Frio<span>13 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="campinas">Campinas<span>65 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="cascavel">Cascavel<span>22 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="cuiaba">Cuiabá<span>23 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="curitiba">Curitiba<span>87 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="florianopolis">Florianópolis<span>163 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="fortaleza">Fortaleza<span>64 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="goiânia">Goiânia<span>66 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="governador-valadares">Governador Valadares<span>8 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="indaiatuba">Indaiatuba<span>21 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="joinville">Joinville<span>22 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="juiz-de-fora">Juiz de Fora<span>13 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="jundiai">Jundiaí<span>23 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="lisboa">Lisboa<span>36 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="londrina">Londrina<span>25 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="macae">Macaé<span>15 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="maceio">Maceió<span>14 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="maringa">Maringá<span>31 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="natal">Natal<span>17 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="niteroi">Niterói<span>24 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="nova-lima">Nova Lima<span>20 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="orlando">Orlando<span>0 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="osasco">Osasco<span>19 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="paulo-afonso">Paulo Afonso<span>5 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="ponta-grossa">Ponta Grossa<span>12 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="porto-alegre">Porto Alegre<span>71 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="resende">Resende<span>8 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="ribeirao-preto">Ribeirão Preto<span>39 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="rio-de-janeiro">Rio de Janeiro<span>103 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="salvador">Salvador<span>34 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="sinop">Sinop<span>10 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="sorocaba">Sorocaba<span>16 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="sao-jose-do-rio-preto">São José do Rio Preto<span>30 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="sao-luis">São Luís<span>12 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="sao-paulo">São Paulo<span>352 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="teresina">Teresina<span>5 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="uberaba">Uberaba<span>10 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="uberlândia">Uberlândia<span>17 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="uba">Ubá<span>6 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="valinhos">Valinhos<span>10 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="vitoria">Vitória<span>35 membros</span></button>
+    <button class="globe-marker" type="button" data-marker="volta-redonda">Volta Redonda<span>11 membros</span></button>
+</div>
+        </div>
+        <h3 class="why-card-title">50+ hubs regionais, 5 continentes.</h3>
+        <p class="why-card-body">
+          O que um descobre em Florianópolis, outro aplica em Lisboa no mesmo dia. Conhecimento sem fronteiras, resultados sem limite.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROGRAMS ===================== -->
+<section class="programs" id="programas">
+  <div class="wrap">
+    <div class="programs-head">
+      <div class="programs-num"><span class="brk">PROGRAMAS · TRÊS CAMINHOS</span></div>
+      <h2 class="programs-title">
+        Do primeiro agente ao <span class="hl">sistema completo.</span>
+      </h2>
+      <p class="programs-lead">
+        Três programas. Um caminho. Você decide a velocidade — nós garantimos a estrutura, a rede e o resultado.
+      </p>
+    </div>
+    <div class="program-grid">
+
+      <article class="program-card">
+        <span class="program-tag"><span class="brk">PROGRAMA 01 · ALWAYS-ON</span></span>
+        <h3 class="program-name">Comunidade<br>Lendár[IA]</h3>
+        <p class="program-desc">
+          O ponto de entrada. Gente que pensa grande e executa rápido. Networking estratégico, mentorias, eventos presenciais e acesso a oportunidades que não existem lá fora.
+        </p>
+        <ul class="program-bullets">
+          <li>Networking curado</li>
+          <li>Mentorias ao vivo</li>
+          <li>Oportunidades exclusivas</li>
+        </ul>
+        <a href="#" class="program-cta">Fazer parte</a>
+      </article>
+
+      <article class="program-card featured">
+        <span class="program-tag"><span class="brk">PROGRAMA 02 · 4 SEMANAS</span></span>
+        <h3 class="program-name">Cohort<br>Fundamentals</h3>
+        <p class="program-desc">
+          Oito encontros ao vivo onde você constrói, do zero, uma equipe de agentes de IA que trabalha 24/7 pelo seu negócio. Não importa se você nunca programou — importa que você quer resultado.
+        </p>
+        <ul class="program-bullets">
+          <li>8 encontros ao vivo</li>
+          <li>Seu primeiro squad de IA</li>
+          <li>Zero código</li>
+        </ul>
+        <a href="#" class="program-cta">Iniciar jornada</a>
+      </article>
+
+      <article class="program-card dark">
+        <span class="program-tag"><span class="brk">PROGRAMA 03 · 9 AGENTES</span></span>
+        <h3 class="program-name">Cohort<br>Advanced</h3>
+        <p class="program-desc">
+          O sistema completo. Nove agentes que substituem dev, QA, arquiteto, PM, designer, data engineer e DevOps. O equivalente a um time de R$1.6M+/ano — na sua máquina, sob seu comando.
+        </p>
+        <ul class="program-bullets">
+          <li>9 agentes especializados</li>
+          <li>Infraestrutura proprietária</li>
+          <li>Para quem já entendeu</li>
+        </ul>
+        <a href="#" class="program-cta">Acessar o Advanced</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOCIAL PROOF ===================== -->
+<section class="proof" id="provas">
+  <div class="wrap">
+    <div class="proof-head">
+      <div class="proof-num"><span class="brk">PROVAS SOCIAIS · CASOS REAIS</span></div>
+      <h2 class="proof-title">Histórias de quem já está construindo.</h2>
+      <p class="proof-lead">
+        Não são depoimentos ensaiados. São empresários reais mostrando, na prática, o que mudou depois que entraram.
+      </p>
+    </div>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-play"></div>
+        <div class="video-meta"><span class="brk">CASO 01</span></div>
+        <div class="video-name">R$1.6M<br>salvos / ano</div>
+      </div>
+      <div class="video-card">
+        <div class="video-play"></div>
+        <div class="video-meta"><span class="brk">CASO 02</span></div>
+        <div class="video-name">9 agentes<br>em produção</div>
+      </div>
+      <div class="video-card">
+        <div class="video-play"></div>
+        <div class="video-meta"><span class="brk">CASO 03</span></div>
+        <div class="video-name">5x ROI<br>em 90 dias</div>
+      </div>
+      <div class="video-card">
+        <div class="video-play"></div>
+        <div class="video-meta"><span class="brk">CASO 04</span></div>
+        <div class="video-name">Equipe<br>−70%</div>
+      </div>
+    </div>
+
+    <div class="testimonial-marquee-label"><span class="brk">MAIS VOZES · MOVIMENTO CONTÍNUO</span></div>
+  </div>
+
+  <div class="testimonial-marquee">
+    <div class="testimonial-track">
+      <!-- 12 cells × 2 for seamless loop -->
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+      <div class="testimonial-cell"></div><div class="testimonial-cell"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="proof-metrics">
+      <div>
+        <div class="proof-metric-num">4.9/5</div>
+        <div class="proof-metric-label"><span class="brk">SATISFAÇÃO · 2.1K AVALIAÇÕES</span></div>
+      </div>
+      <div>
+        <div class="proof-metric-num">97%</div>
+        <div class="proof-metric-label"><span class="brk">RENOVAM A PARTICIPAÇÃO</span></div>
+      </div>
+      <div>
+        <div class="proof-metric-num">15K+</div>
+        <div class="proof-metric-label"><span class="brk">PROFISSIONAIS ATIVOS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HUBS ===================== -->
+<section class="hubs" id="hubs">
+  <div class="wrap">
+    <div class="hubs-head">
+      <div class="hubs-num"><span class="brk">HUBS LENDÁR[IA] · REDE PRESENCIAL</span></div>
+      <h2 class="hubs-title">
+        O movimento acontece <span class="hl">presencialmente.</span>
+      </h2>
+      <p class="hubs-lead">
+        A Academia vive online. Mas a transformação acontece quando as pessoas se olham nos olhos. Os Hubs são onde a rede global vira rede local.
+      </p>
+    </div>
+
+    <div class="hubs-stats">
+      <div>
+        <div class="hubs-stat-num">50+</div>
+        <div class="hubs-stat-label"><span class="brk">HUBS ATIVOS</span></div>
+      </div>
+      <div>
+        <div class="hubs-stat-num">15K+</div>
+        <div class="hubs-stat-label"><span class="brk">MEMBROS CONECTADOS</span></div>
+      </div>
+      <div>
+        <div class="hubs-stat-num">200+</div>
+        <div class="hubs-stat-label"><span class="brk">EVENTOS POR MÊS</span></div>
+      </div>
+      <div>
+        <div class="hubs-stat-num">15 · 5</div>
+        <div class="hubs-stat-label"><span class="brk">ESTADOS · PAÍSES</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cities-marquee">
+    <div class="cities-track">
+      <span>SÃO PAULO</span>
+      <span>RIO</span>
+      <span>CURITIBA</span>
+      <span>FLORIPA</span>
+      <span>RECIFE</span>
+      <span>MANAUS</span>
+      <span>FORTALEZA</span>
+      <span>LISBOA</span>
+      <span>MIAMI</span>
+      <span>SÃO PAULO</span>
+      <span>RIO</span>
+      <span>CURITIBA</span>
+      <span>FLORIPA</span>
+      <span>RECIFE</span>
+      <span>MANAUS</span>
+      <span>FORTALEZA</span>
+      <span>LISBOA</span>
+      <span>MIAMI</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hubs-bottom">
+      <div>
+        <h3 class="hubs-pillars-title">Pontos de encontro onde lendários se reconhecem.</h3>
+        <p class="hubs-pillars-body">
+          Cada Hub é liderado por um embaixador local — um membro da Academia que organiza encontros, conecta pessoas e puxa projetos da sua região. Você chega, senta numa mesa, e sai de lá com clientes, sócios ou ideias que valem anos.
+        </p>
+        <div class="hubs-cta-row">
+          <a href="#" class="btn btn-primary btn-lg btn-block">Entrar em um Hub →</a>
+          <a href="#" class="btn btn-lg">Tornar-se embaixador</a>
+        </div>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-content">
+            <h4>Conexão regional real</h4>
+            <p>Encontros presenciais com quem compartilha a mesma visão de IA aplicada.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-content">
+            <h4>Projetos na prática</h4>
+            <p>Troca de playbooks, colaboração em cases e aceleração compartilhada.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-content">
+            <h4>Crescimento coletivo</h4>
+            <p>O que um descobre em Floripa, outro aplica em Lisboa na mesma semana.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== IMERSAO ===================== -->
+<section class="imersao" id="eventos">
+  <div class="wrap">
+    <div class="imersao-grid">
+      <div>
+        <div class="imersao-eyebrow"><span class="brk">IMERSÃO EXECUTIVA · LISTA DE ESPERA</span></div>
+        <h2 class="imersao-title">
+          Imersão no <span class="hl">Vale do Silício.</span>
+        </h2>
+        <p class="imersao-body">
+          5 dias em San Francisco cercado de executores de alto nível no epicentro da IA. Uma experiência que muda a forma como você opera.
+        </p>
+        <div class="imersao-meta-row">
+          <span class="imersao-badge"><span class="brk">20 VAGAS</span></span>
+          <span class="imersao-badge"><span class="brk">5 DIAS</span></span>
+          <span class="imersao-badge"><span class="brk">SAN FRANCISCO · CA</span></span>
+          <span class="imersao-badge"><span class="brk">EDIÇÃO 003</span></span>
+        </div>
+        <a href="#" class="btn btn-primary btn-lg btn-block">Entrar na lista de espera →</a>
+      </div>
+      <div class="imersao-poster">
+        <div class="imersao-poster-tag"><span class="brk">ED.003</span></div>
+        <div class="imersao-poster-num">5</div>
+        <div class="imersao-poster-foot">DIAS · SF · IA</div>
+        <div class="imersao-poster-meta">2026<br>SAN FRANCISCO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OPEN HUB ===================== -->
+<section class="open-hub">
+  <div class="wrap open-hub-grid">
+    <div>
+      <div class="open-hub-eyebrow"><span class="brk">NÃO TEM HUB NA SUA CIDADE?</span></div>
+      <h2 class="open-hub-title">Abra o <span class="hl-dark">seu.</span></h2>
+      <p class="open-hub-body">
+        Se você é membro ativo e quer puxar a comunidade local, a gente te dá estrutura, identidade e suporte para começar.
+      </p>
+    </div>
+    <a href="#" class="btn btn-dark btn-lg btn-block" style="box-shadow: 8px 8px 0 var(--color-ink);">Solicitar um Hub →</a>
+  </div>
+</section>
+
+<!-- ===================== FOUNDER ===================== -->
+<section class="founder" id="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="founder-photo" aria-hidden="true"></div>
+      <div>
+        <div class="founder-eyebrow">
+          <span><span class="brk">ALAN NICOLAS · FOUNDER</span></span>
+          <span><span class="brk">2019 → NOW</span></span>
+        </div>
+        <h2 class="founder-name">Alan<br>Nicolas.</h2>
+        <p class="founder-tag">
+          Visionário, construtor e líder de <span class="hl">15 mil pessoas</span> redefinindo o que é possível com IA.
+        </p>
+        <div class="founder-roles">
+          <span class="founder-role"><span class="brk">EMPRESÁRIO</span></span>
+          <span class="founder-role"><span class="brk">FILÓSOFO</span></span>
+          <span class="founder-role"><span class="brk">FUTURISTA</span></span>
+          <span class="founder-role"><span class="brk">SPEAKER</span></span>
+        </div>
+        <div class="founder-metrics">
+          <div>
+            <div class="founder-metric-num">+15MIL</div>
+            <div class="founder-metric-label"><span class="brk">VIDAS TRANSFORMADAS</span></div>
+          </div>
+          <div>
+            <div class="founder-metric-num">R$200M+</div>
+            <div class="founder-metric-label"><span class="brk">FATURAMENTO PESSOAL</span></div>
+          </div>
+        </div>
+        <p class="founder-body">
+          Alan não fala sobre o futuro — ele constrói. Sua metodologia já transformou 15 mil profissionais em operadores de equipes de agentes de IA, independente de background técnico.
+        </p>
+        <p class="founder-body">
+          Criador do conceito "2º Cérebro com IA" no Brasil. Provou que a distância entre "não sei programar" e "tenho 9 agentes trabalhando pra mim" é menor do que qualquer um imagina.
+        </p>
+        <div class="founder-media">
+          <div class="founder-media-label"><span class="brk">NA MÍDIA</span></div>
+          <div class="founder-media-row">
+            <span>G1</span>
+            <span>EXAME</span>
+            <span>ESTADÃO</span>
+            <span>TERRA</span>
+            <span>DN</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NEWSLETTER ===================== -->
+<section class="newsletter" id="newsletter">
+  <div class="wrap nl-grid">
+    <div>
+      <div class="nl-eyebrow"><span class="brk">NEWSLETTER · TODA SEMANA</span></div>
+      <h2 class="nl-title">
+        O que funciona, direto na sua <span class="hl">caixa.</span>
+      </h2>
+    </div>
+    <div>
+      <p class="nl-body">
+        Toda semana, Alan compartilha o que está funcionando no ecossistema: frameworks, casos reais, atalhos, oportunidades. 15K+ profissionais já recebem. Gratuito. Direto. Sem enrolação.
+      </p>
+      <form class="nl-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="seu@email.com" aria-label="Seu email"/>
+        <button type="submit">Assinar →</button>
+      </form>
+      <div class="nl-disclaimer">
+        Sem spam · Cancele quando quiser · <span class="brk">LGPD-READY</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-divider"></div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <a href="#" class="w-max">
+          <img src="imagens/LogoAcademiaLendaria.svg" alt="Academia Lendár[IA]" style="height: 24px; width: auto; filter: invert(1); display: block;" />
+        </a>
+        <p>Um ecossistema global de educação e inovação com IA.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="X (Twitter)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <span>Recursos</span>
+        <div class="links">
+          <a href="#">Blog</a>
+          <a href="#">Central de Ajuda</a>
+          <a href="#">Suporte</a>
+          <a href="#">Comunidade</a>
+          <a href="#">Segurança</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <span>Empresa</span>
+        <div class="links">
+          <a href="#">Sobre Nós</a>
+          <a href="#">Carreiras</a>
+          <a href="#">Brand Assets</a>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <div class="wrap" style="position: relative; z-index: 1;">
+    <div class="footer-bottom">
+      <p>© <a href="#">Academia Lendária</a>. Todos os direitos reservados 2026.</p>
+      <div class="footer-sign-off">
+        Construindo o infinito, hoje. <span class="inf"></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  const globeRoot = document.querySelector("[data-globe]");
+
+  if (globeRoot) {
+    const canvas = globeRoot.querySelector("canvas");
+    const visual = globeRoot.closest(".why-visual-globe");
+    const markerButtons = Array.from(globeRoot.querySelectorAll(".globe-marker"));
+    const markers = [
+      { id: "alegrete", location: [-29.7902, -55.7949], name: "Alegrete", users: 8 },
+      { id: "anapolis", location: [-16.3333, -48.9526], name: "Anápolis", users: 14 },
+      { id: "araxa", location: [-19.6009, -46.9409], name: "Araxá", users: 8 },
+      { id: "baixada-santista", location: [-23.9609, -46.3166], name: "Baixada Santista", users: 24 },
+      { id: "balneario-camboriu", location: [-26.9924, -48.6340], name: "Balneário Camboriú", users: 45 },
+      { id: "bauru", location: [-22.3174, -49.0690], name: "Bauru", users: 18 },
+      { id: "belo-horizonte", location: [-19.9227, -43.9451], name: "Belo Horizonte", users: 67 },
+      { id: "belem", location: [-1.4506, -48.4682], name: "Belém", users: 19 },
+      { id: "bento-goncalves", location: [-29.1657, -51.5201], name: "Bento Gonçalves", users: 16 },
+      { id: "blumenau", location: [-26.9196, -49.0658], name: "Blumenau", users: 26 },
+      { id: "boa-vista", location: [2.8208, -60.6720], name: "Boa Vista", users: 11 },
+      { id: "boituva", location: [-23.2839, -47.6738], name: "Boituva", users: 7 },
+      { id: "brasilia", location: [-15.7940, -47.8828], name: "Brasília", users: 59 },
+      { id: "cabo-frio", location: [-22.7378, -42.0241], name: "Cabo Frio", users: 13 },
+      { id: "campinas", location: [-22.9056, -47.0596], name: "Campinas", users: 65 },
+      { id: "cascavel", location: [-24.9555, -53.4561], name: "Cascavel", users: 22 },
+      { id: "cuiaba", location: [-15.5987, -56.0991], name: "Cuiabá", users: 23 },
+      { id: "curitiba", location: [-25.4296, -49.2713], name: "Curitiba", users: 87 },
+      { id: "florianopolis", location: [-27.5973, -48.5496], name: "Florianópolis", users: 163 },
+      { id: "fortaleza", location: [-3.7932, -38.5280], name: "Fortaleza", users: 64 },
+      { id: "goiânia", location: [-16.6809, -49.2533], name: "Goiânia", users: 66 },
+      { id: "governador-valadares", location: [-18.8574, -41.9439], name: "Governador Valadares", users: 8 },
+      { id: "indaiatuba", location: [-23.0908, -47.2181], name: "Indaiatuba", users: 21 },
+      { id: "joinville", location: [-26.3045, -48.8487], name: "Joinville", users: 22 },
+      { id: "juiz-de-fora", location: [-21.7610, -43.3501], name: "Juiz de Fora", users: 13 },
+      { id: "jundiai", location: [-23.1888, -46.8845], name: "Jundiaí", users: 23 },
+      { id: "lisboa", location: [38.7078, -9.1366], name: "Lisboa", users: 36 },
+      { id: "londrina", location: [-23.3113, -51.1595], name: "Londrina", users: 25 },
+      { id: "macae", location: [-22.2828, -41.9649], name: "Macaé", users: 15 },
+      { id: "maceio", location: [-9.6477, -35.7339], name: "Maceió", users: 14 },
+      { id: "maringa", location: [-23.4253, -51.9382], name: "Maringá", users: 31 },
+      { id: "natal", location: [-5.8054, -35.2081], name: "Natal", users: 17 },
+      { id: "niteroi", location: [-22.8884, -43.1147], name: "Niterói", users: 24 },
+      { id: "nova-lima", location: [-19.9854, -43.8471], name: "Nova Lima", users: 20 },
+      { id: "orlando", location: [28.5421, -81.3790], name: "Orlando", users: 0 },
+      { id: "osasco", location: [-23.5325, -46.7917], name: "Osasco", users: 19 },
+      { id: "paulo-afonso", location: [-9.3999, -38.2173], name: "Paulo Afonso", users: 5 },
+      { id: "ponta-grossa", location: [-25.0892, -50.1602], name: "Ponta Grossa", users: 12 },
+      { id: "porto-alegre", location: [-30.0325, -51.2304], name: "Porto Alegre", users: 71 },
+      { id: "resende", location: [-22.4419, -44.4205], name: "Resende", users: 8 },
+      { id: "ribeirao-preto", location: [-21.1776, -47.8101], name: "Ribeirão Preto", users: 39 },
+      { id: "rio-de-janeiro", location: [-22.9110, -43.2094], name: "Rio de Janeiro", users: 103 },
+      { id: "salvador", location: [-12.9822, -38.4813], name: "Salvador", users: 34 },
+      { id: "sinop", location: [-11.8577, -55.4968], name: "Sinop", users: 10 },
+      { id: "sorocaba", location: [-23.5003, -47.4583], name: "Sorocaba", users: 16 },
+      { id: "sao-jose-do-rio-preto", location: [-20.8126, -49.3804], name: "São José do Rio Preto", users: 30 },
+      { id: "sao-luis", location: [-2.5295, -44.2964], name: "São Luís", users: 12 },
+      { id: "sao-paulo", location: [-23.5507, -46.6334], name: "São Paulo", users: 352 },
+      { id: "teresina", location: [-5.0875, -42.8050], name: "Teresina", users: 5 },
+      { id: "uberaba", location: [-19.7508, -47.9367], name: "Uberaba", users: 10 },
+      { id: "uberlândia", location: [-18.9188, -48.2768], name: "Uberlândia", users: 17 },
+      { id: "uba", location: [-21.1200, -42.9428], name: "Ubá", users: 6 },
+      { id: "valinhos", location: [-22.9706, -46.9958], name: "Valinhos", users: 10 },
+      { id: "vitoria", location: [-20.3201, -40.3377], name: "Vitória", users: 35 },
+      { id: "volta-redonda", location: [-22.5235, -44.0902], name: "Volta Redonda", users: 11 },
+    ];
+
+    let createGlobe;
+    try {
+      ({ default: createGlobe } = await import("https://esm.sh/cobe@0.6.3"));
+    } catch (error) {
+      console.warn("Cobe globe unavailable; keeping static fallback.", error);
+    }
+
+    if (canvas && createGlobe) {
+      let globe = null;
+      let animationId = 0;
+      let phi = 0;
+      let dragStart = null;
+      let dragOffset = { phi: 0, theta: 0 };
+      let phiOffset = 0;
+      let thetaOffset = 0;
+      let isPaused = false;
+
+      const destroyGlobe = () => {
+        if (animationId) cancelAnimationFrame(animationId);
+        if (globe) globe.destroy();
+        animationId = 0;
+        globe = null;
+      };
+
+      const initGlobe = () => {
+        const size = Math.floor(canvas.offsetWidth);
+        if (!size || globe) return;
+
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        globe = createGlobe(canvas, {
+          devicePixelRatio: dpr,
+          width: size * dpr,
+          height: size * dpr,
+          phi: 0,
+          theta: 0.2,
+          dark: 0,
+          diffuse: 1.5,
+          mapSamples: 16000,
+          mapBrightness: 10,
+          baseColor: [1, 1, 1],
+          markerColor: [0.98, 0.75, 0.14],
+          glowColor: [0.94, 0.93, 0.91],
+          scale: 1.08,
+          markerElevation: 0,
+          markers: markers.map((marker) => ({
+            location: marker.location,
+            size: 0.025,
+            id: marker.id,
+          })),
+          onRender: (state) => {
+            if (!isPaused) phi += 0.003;
+            state.phi = phi + phiOffset + dragOffset.phi;
+            state.theta = 0.2 + thetaOffset + dragOffset.theta;
+          },
+        });
+
+        visual?.classList.remove("is-static");
+        canvas.classList.add("is-ready");
+      };
+
+      canvas.addEventListener("pointerdown", (event) => {
+        dragStart = { x: event.clientX, y: event.clientY };
+        canvas.style.cursor = "grabbing";
+        isPaused = true;
+      });
+
+      window.addEventListener("pointermove", (event) => {
+        if (!dragStart) return;
+        dragOffset = {
+          phi: (event.clientX - dragStart.x) / 300,
+          theta: (event.clientY - dragStart.y) / 1000,
+        };
+      }, { passive: true });
+
+      window.addEventListener("pointerup", () => {
+        if (dragStart) {
+          phiOffset += dragOffset.phi;
+          thetaOffset += dragOffset.theta;
+          dragOffset = { phi: 0, theta: 0 };
+        }
+        dragStart = null;
+        canvas.style.cursor = "grab";
+        isPaused = false;
+      }, { passive: true });
+
+      markerButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          markerButtons.forEach((item) => {
+            if (item !== button) item.classList.remove("is-expanded");
+          });
+          button.classList.toggle("is-expanded");
+        });
+      });
+
+      if (canvas.offsetWidth > 0) {
+        initGlobe();
+      } else {
+        const observer = new ResizeObserver((entries) => {
+          if (entries[0]?.contentRect.width > 0) {
+            observer.disconnect();
+            initGlobe();
+          }
+        });
+        observer.observe(canvas);
+      }
+
+      window.addEventListener("resize", () => {
+        destroyGlobe();
+        canvas.classList.remove("is-ready");
+        window.requestAnimationFrame(initGlobe);
+      }, { passive: true });
+    }
+  }
+</script>
+
+</body>
+</html>

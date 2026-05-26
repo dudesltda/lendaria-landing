@@ -1,0 +1,497 @@
+[
+  {
+    "id": "alegrete",
+    "location": [
+      -29.790166,
+      -55.794862
+    ],
+    "name": "Alegrete",
+    "users": 8
+  },
+  {
+    "id": "anápolis",
+    "location": [
+      -16.3332828,
+      -48.9525756
+    ],
+    "name": "Anápolis",
+    "users": 14
+  },
+  {
+    "id": "araxá",
+    "location": [
+      -19.6009149,
+      -46.940923
+    ],
+    "name": "Araxá",
+    "users": 8
+  },
+  {
+    "id": "baixada-santista",
+    "location": [
+      -23.9609448,
+      -46.3166316
+    ],
+    "name": "Baixada Santista",
+    "users": 24
+  },
+  {
+    "id": "balneário-camboriú",
+    "location": [
+      -26.9924395,
+      -48.6339782
+    ],
+    "name": "Balneário Camboriú",
+    "users": 45
+  },
+  {
+    "id": "bauru",
+    "location": [
+      -22.3173803,
+      -49.0689778
+    ],
+    "name": "Bauru",
+    "users": 18
+  },
+  {
+    "id": "belém",
+    "location": [
+      -1.45056,
+      -48.4682453
+    ],
+    "name": "Belém",
+    "users": 19
+  },
+  {
+    "id": "belo-horizonte",
+    "location": [
+      -19.9227318,
+      -43.9450948
+    ],
+    "name": "Belo Horizonte",
+    "users": 67
+  },
+  {
+    "id": "bento-gonçalves",
+    "location": [
+      -29.1656734,
+      -51.5201166
+    ],
+    "name": "Bento Gonçalves",
+    "users": 16
+  },
+  {
+    "id": "blumenau",
+    "location": [
+      -26.9195567,
+      -49.0658025
+    ],
+    "name": "Blumenau",
+    "users": 26
+  },
+  {
+    "id": "boa-vista",
+    "location": [
+      2.8208478,
+      -60.6719582
+    ],
+    "name": "Boa Vista",
+    "users": 11
+  },
+  {
+    "id": "boituva",
+    "location": [
+      -23.2838893,
+      -47.6738231
+    ],
+    "name": "Boituva",
+    "users": 7
+  },
+  {
+    "id": "brasília",
+    "location": [
+      -15.7939869,
+      -47.8828
+    ],
+    "name": "Brasília",
+    "users": 59
+  },
+  {
+    "id": "cabo-frio",
+    "location": [
+      -22.7378309,
+      -42.0240869
+    ],
+    "name": "Cabo Frio",
+    "users": 13
+  },
+  {
+    "id": "campinas",
+    "location": [
+      -22.9056391,
+      -47.059564
+    ],
+    "name": "Campinas",
+    "users": 65
+  },
+  {
+    "id": "cascavel",
+    "location": [
+      -24.9554996,
+      -53.4560544
+    ],
+    "name": "Cascavel",
+    "users": 22
+  },
+  {
+    "id": "cuiabá",
+    "location": [
+      -15.5986686,
+      -56.0991301
+    ],
+    "name": "Cuiabá",
+    "users": 23
+  },
+  {
+    "id": "curitiba",
+    "location": [
+      -25.4295963,
+      -49.2712724
+    ],
+    "name": "Curitiba",
+    "users": 87
+  },
+  {
+    "id": "florianópolis",
+    "location": [
+      -27.5973002,
+      -48.5496098
+    ],
+    "name": "Florianópolis",
+    "users": 163
+  },
+  {
+    "id": "fortaleza",
+    "location": [
+      -3.7932167,
+      -38.5280359
+    ],
+    "name": "Fortaleza",
+    "users": 64
+  },
+  {
+    "id": "goiânia",
+    "location": [
+      -16.680882,
+      -49.2532691
+    ],
+    "name": "Goiânia",
+    "users": 66
+  },
+  {
+    "id": "governador-valadares",
+    "location": [
+      -18.8574155,
+      -41.9439276
+    ],
+    "name": "Governador Valadares",
+    "users": 8
+  },
+  {
+    "id": "indaiatuba",
+    "location": [
+      -23.0908356,
+      -47.2180677
+    ],
+    "name": "Indaiatuba",
+    "users": 21
+  },
+  {
+    "id": "joinville",
+    "location": [
+      -26.3044898,
+      -48.8486726
+    ],
+    "name": "Joinville",
+    "users": 22
+  },
+  {
+    "id": "juiz-de-fora",
+    "location": [
+      -21.7609533,
+      -43.3501129
+    ],
+    "name": "Juiz de Fora",
+    "users": 13
+  },
+  {
+    "id": "jundiaí",
+    "location": [
+      -23.1887668,
+      -46.884506
+    ],
+    "name": "Jundiaí",
+    "users": 23
+  },
+  {
+    "id": "lisboa",
+    "location": [
+      38.7077507,
+      -9.1365919
+    ],
+    "name": "Lisboa",
+    "users": 36
+  },
+  {
+    "id": "londrina",
+    "location": [
+      -23.3112878,
+      -51.1595023
+    ],
+    "name": "Londrina",
+    "users": 25
+  },
+  {
+    "id": "macaé",
+    "location": [
+      -22.2828305,
+      -41.9649091
+    ],
+    "name": "Macaé",
+    "users": 15
+  },
+  {
+    "id": "maceió",
+    "location": [
+      -9.6476843,
+      -35.7339264
+    ],
+    "name": "Maceió",
+    "users": 14
+  },
+  {
+    "id": "maringá",
+    "location": [
+      -23.425269,
+      -51.9382078
+    ],
+    "name": "Maringá",
+    "users": 31
+  },
+  {
+    "id": "natal",
+    "location": [
+      -5.805398,
+      -35.2080905
+    ],
+    "name": "Natal",
+    "users": 17
+  },
+  {
+    "id": "niterói",
+    "location": [
+      -22.8884,
+      -43.1147
+    ],
+    "name": "Niterói",
+    "users": 24
+  },
+  {
+    "id": "nova-lima",
+    "location": [
+      -19.9854089,
+      -43.8470691
+    ],
+    "name": "Nova Lima",
+    "users": 20
+  },
+  {
+    "id": "orlando",
+    "location": [
+      28.5421218,
+      -81.379045
+    ],
+    "name": "Orlando",
+    "users": 0
+  },
+  {
+    "id": "osasco",
+    "location": [
+      -23.5324859,
+      -46.7916801
+    ],
+    "name": "Osasco",
+    "users": 19
+  },
+  {
+    "id": "paulo-afonso",
+    "location": [
+      -9.3998562,
+      -38.2172818
+    ],
+    "name": "Paulo Afonso",
+    "users": 5
+  },
+  {
+    "id": "ponta-grossa",
+    "location": [
+      -25.0891685,
+      -50.1601812
+    ],
+    "name": "Ponta Grossa",
+    "users": 12
+  },
+  {
+    "id": "porto-alegre",
+    "location": [
+      -30.0324999,
+      -51.2303767
+    ],
+    "name": "Porto Alegre",
+    "users": 71
+  },
+  {
+    "id": "resende",
+    "location": [
+      -22.4418699,
+      -44.4204847
+    ],
+    "name": "Resende",
+    "users": 8
+  },
+  {
+    "id": "ribeirão-preto",
+    "location": [
+      -21.1776315,
+      -47.8100983
+    ],
+    "name": "Ribeirão Preto",
+    "users": 39
+  },
+  {
+    "id": "rio-de-janeiro",
+    "location": [
+      -22.9110137,
+      -43.2093727
+    ],
+    "name": "Rio de Janeiro",
+    "users": 103
+  },
+  {
+    "id": "salvador",
+    "location": [
+      -12.9822499,
+      -38.4812772
+    ],
+    "name": "Salvador",
+    "users": 34
+  },
+  {
+    "id": "são-josé-do-rio-preto",
+    "location": [
+      -20.8125851,
+      -49.3804212
+    ],
+    "name": "São José do Rio Preto",
+    "users": 30
+  },
+  {
+    "id": "são-luís",
+    "location": [
+      -2.5295265,
+      -44.2963942
+    ],
+    "name": "São Luís",
+    "users": 12
+  },
+  {
+    "id": "são-paulo",
+    "location": [
+      -23.5506507,
+      -46.6333824
+    ],
+    "name": "São Paulo",
+    "users": 352
+  },
+  {
+    "id": "sinop",
+    "location": [
+      -11.857701,
+      -55.4967824
+    ],
+    "name": "Sinop",
+    "users": 10
+  },
+  {
+    "id": "sorocaba",
+    "location": [
+      -23.5003451,
+      -47.4582864
+    ],
+    "name": "Sorocaba",
+    "users": 16
+  },
+  {
+    "id": "teresina",
+    "location": [
+      -5.0874608,
+      -42.8049571
+    ],
+    "name": "Teresina",
+    "users": 5
+  },
+  {
+    "id": "ubá",
+    "location": [
+      -21.12,
+      -42.942777
+    ],
+    "name": "Ubá",
+    "users": 6
+  },
+  {
+    "id": "uberaba",
+    "location": [
+      -19.750833,
+      -47.936666
+    ],
+    "name": "Uberaba",
+    "users": 10
+  },
+  {
+    "id": "uberlândia",
+    "location": [
+      -18.9188041,
+      -48.2767837
+    ],
+    "name": "Uberlândia",
+    "users": 17
+  },
+  {
+    "id": "valinhos",
+    "location": [
+      -22.97056,
+      -46.99583
+    ],
+    "name": "Valinhos",
+    "users": 10
+  },
+  {
+    "id": "vitória",
+    "location": [
+      -20.3200917,
+      -40.3376682
+    ],
+    "name": "Vitória",
+    "users": 35
+  },
+  {
+    "id": "volta-redonda",
+    "location": [
+      -22.5234674,
+      -44.090246
+    ],
+    "name": "Volta Redonda",
+    "users": 11
+  }
+]

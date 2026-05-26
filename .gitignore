@@ -1,0 +1,59 @@
+# OS
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+
+# Synapse / framework scratch
+.synapse/
+.impeccable/
+
+# Build artifacts
+dist/
+build/
+.next/
+.turbo/
+.vercel/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Heavy media (>5MB) — kept locally, not pushed (handle later via LFS or external CDN)
+assets/midia-kit-academia-lendaria.pdf
+referencias/founder/alan-nicolas-ampulheta-moeda-sifrao.jpg
+referencias/founder/alan-nicolas-celular-camisa-branca.jpg
+referencias/founder/alan-nicolas-laptop-luz-quente.jpg
+referencias/founder/alan-nicolas-microfone-oculos.jpg
+referencias/founder/alan-nicolas-retrato-em-pe-estudio.jpg
+referencias/media-kit/midia-kit-alan-academia-lendaria.pdf
+.vercel
+
+# Environment & Secrets (AIOX)
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Dependencies (AIOX)
+node_modules
+
+# Build & Logs (AIOX)
+*.log
+logs/
+
+# AIOX Local (AIOX)
+.aiox-core/local/
+.claude/settings.local.json
+.aiox/install-log.txt
